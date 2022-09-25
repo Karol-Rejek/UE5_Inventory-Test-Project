@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\ArrasisSurvival.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\ArrasisSurvival.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\ArrasisSurvivalEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Config\HoloLens">
+      <UniqueIdentifier>{4C8DD267-CDE7-336F-8602-F5F485D22BAB}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\HoloLens\HoloLensEngine.ini">
+      <Filter>Config\HoloLens</Filter>
+    </None>
+    <Filter Include="Source\ArrasisSurvival">
+      <UniqueIdentifier>{068DA383-0DE5-367E-824B-4DF9D140BC2D}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\ArrasisSurvival\ArrasisSurvival.Build.cs">
+      <Filter>Source\ArrasisSurvival</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\ArrasisSurvival\ArrasisSurvival.cpp">
+      <Filter>Source\ArrasisSurvival</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ArrasisSurvival\ArrasisSurvival.h">
+      <Filter>Source\ArrasisSurvival</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ArrasisSurvival\PlayerStatComponent.cpp">
+      <Filter>Source\ArrasisSurvival</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ArrasisSurvival\PlayerStatComponent.h">
+      <Filter>Source\ArrasisSurvival</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ArrasisSurvival\SurvivalMan.cpp">
+      <Filter>Source\ArrasisSurvival</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ArrasisSurvival\SurvivalMan.h">
+      <Filter>Source\ArrasisSurvival</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ArrasisSurvival\SurvivalMan_GameMode.cpp">
+      <Filter>Source\ArrasisSurvival</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ArrasisSurvival\SurvivalMan_GameMode.h">
+      <Filter>Source\ArrasisSurvival</Filter>
+    </ClInclude>
+    <Filter Include="Source\ArrasisSurvival\Private">
+      <UniqueIdentifier>{3B8D39E0-5E71-3467-AF3F-AA631C0B02EF}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\ArrasisSurvival\Private\InteractableInterface.cpp">
+      <Filter>Source\ArrasisSurvival\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\ArrasisSurvival\Private\Actors">
+      <UniqueIdentifier>{7C1A3C8C-E279-352C-8C11-98D4B135B0B6}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\ArrasisSurvival\Private\Actors\Item.cpp">
+      <Filter>Source\ArrasisSurvival\Private\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ArrasisSurvival\Private\Actors\PickupItems.cpp">
+      <Filter>Source\ArrasisSurvival\Private\Actors</Filter>
+    </ClCompile>
+    <Filter Include="Source\ArrasisSurvival\Private\Actors\PickUpItems">
+      <UniqueIdentifier>{150ECE3A-A1A0-30D8-8DF4-621315E6B50B}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\ArrasisSurvival\Private\Actors\PickUpItems\EdibleItems.cpp">
+      <Filter>Source\ArrasisSurvival\Private\Actors\PickUpItems</Filter>
+    </ClCompile>
+    <Filter Include="Source\ArrasisSurvival\Public">
+      <UniqueIdentifier>{EE3F2F40-DD0B-3C46-B245-AEB4C49A1AF8}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\ArrasisSurvival\Public\InteractableInterface.h">
+      <Filter>Source\ArrasisSurvival\Public</Filter>
+    </ClInclude>
+    <Filter Include="Source\ArrasisSurvival\Public\Actors">
+      <UniqueIdentifier>{B8378D68-693C-3813-A02E-837821A4675C}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\ArrasisSurvival\Public\Actors\Item.h">
+      <Filter>Source\ArrasisSurvival\Public\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ArrasisSurvival\Public\Actors\PickupItems.h">
+      <Filter>Source\ArrasisSurvival\Public\Actors</Filter>
+    </ClInclude>
+    <Filter Include="Source\ArrasisSurvival\Public\Actors\PickUpItems">
+      <UniqueIdentifier>{081C23CA-030E-39E3-847F-07DD4FAAB9EB}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\ArrasisSurvival\Public\Actors\PickUpItems\EdibleItems.h">
+      <Filter>Source\ArrasisSurvival\Public\Actors\PickUpItems</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

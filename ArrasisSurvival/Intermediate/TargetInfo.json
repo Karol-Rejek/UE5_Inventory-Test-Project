@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "ArrasisSurvival",
+			"Path": "D:\\GameByKR\\UE5_Arrasis\\ArrasisSurvival\\Source\\ArrasisSurvival.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "ArrasisSurvivalEditor",
+			"Path": "D:\\GameByKR\\UE5_Arrasis\\ArrasisSurvival\\Source\\ArrasisSurvivalEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

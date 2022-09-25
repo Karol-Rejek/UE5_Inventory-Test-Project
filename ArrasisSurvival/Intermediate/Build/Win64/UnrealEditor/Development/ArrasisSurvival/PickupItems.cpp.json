@@ -1,0 +1,20 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\gamebykr\\ue5_arrasis\\arrasissurvival\\source\\arrasissurvival\\private\\actors\\pickupitems.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\gamebykr\\ue5_arrasis\\arrasissurvival\\intermediate\\build\\win64\\arrasissurvivaleditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "d:\\gamebykr\\ue5_arrasis\\arrasissurvival\\intermediate\\build\\win64\\unrealeditor\\development\\arrasissurvival\\definitions.arrasissurvival.h",
+            "d:\\gamebykr\\ue5_arrasis\\arrasissurvival\\source\\arrasissurvival\\public\\actors\\pickupitems.h",
+            "d:\\gamebykr\\ue5_arrasis\\arrasissurvival\\source\\arrasissurvival\\public\\actors\\item.h",
+            "d:\\gamebykr\\ue5_arrasis\\arrasissurvival\\source\\arrasissurvival\\public\\interactableinterface.h",
+            "d:\\gamebykr\\ue5_arrasis\\arrasissurvival\\intermediate\\build\\win64\\unrealeditor\\inc\\arrasissurvival\\interactableinterface.generated.h",
+            "d:\\gamebykr\\ue5_arrasis\\arrasissurvival\\intermediate\\build\\win64\\unrealeditor\\inc\\arrasissurvival\\item.generated.h",
+            "d:\\gamebykr\\ue5_arrasis\\arrasissurvival\\intermediate\\build\\win64\\unrealeditor\\inc\\arrasissurvival\\pickupitems.generated.h",
+            "c:\\engines\\unreal\\ue_5.0\\engine\\source\\runtime\\engine\\public\\net\\unrealnetwork.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
