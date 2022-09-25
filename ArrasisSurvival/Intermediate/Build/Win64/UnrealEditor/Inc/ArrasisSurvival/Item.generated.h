@@ -8,14 +8,23 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UTexture2D;
 #ifdef ARRASISSURVIVAL_Item_generated_h
 #error "Item.generated.h already included, missing '#pragma once' in Item.h"
 #endif
 #define ARRASISSURVIVAL_Item_generated_h
 
 #define FID_ArrasisSurvival_Source_ArrasisSurvival_Public_Actors_Item_h_14_SPARSE_DATA
-#define FID_ArrasisSurvival_Source_ArrasisSurvival_Public_Actors_Item_h_14_RPC_WRAPPERS
-#define FID_ArrasisSurvival_Source_ArrasisSurvival_Public_Actors_Item_h_14_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_ArrasisSurvival_Source_ArrasisSurvival_Public_Actors_Item_h_14_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execGetItemIcon);
+
+
+#define FID_ArrasisSurvival_Source_ArrasisSurvival_Public_Actors_Item_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execGetItemIcon);
+
+
 #define FID_ArrasisSurvival_Source_ArrasisSurvival_Public_Actors_Item_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAItem(); \

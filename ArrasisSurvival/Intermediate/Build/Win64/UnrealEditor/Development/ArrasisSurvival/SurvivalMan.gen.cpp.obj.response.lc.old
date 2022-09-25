@@ -1,5 +1,6 @@
 D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Inc\ArrasisSurvival\SurvivalMan.gen.cpp
 /I .
+/I D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Source\ArrasisSurvival\Private
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\Engine
 /I Runtime
 /I ..\Shaders\Shared
@@ -253,6 +254,7 @@ D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\In
 /I Developer\AnimationDataController\Public
 /I D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Inc\ArrasisSurvival
 /I D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Source
+/I D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Source\ArrasisSurvival\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\AugmentedReality
 /I Runtime\AugmentedReality\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\MRMesh

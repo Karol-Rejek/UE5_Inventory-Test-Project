@@ -145,9 +145,9 @@ void EmptyLinkFunctionForGeneratedCodePickupItems() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_Public_Actors_PickupItems_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_APickupItems, APickupItems::StaticClass, TEXT("APickupItems"), &Z_Registration_Info_UClass_APickupItems, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APickupItems), 1484329453U) },
+		{ Z_Construct_UClass_APickupItems, APickupItems::StaticClass, TEXT("APickupItems"), &Z_Registration_Info_UClass_APickupItems, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APickupItems), 3777499347U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_Public_Actors_PickupItems_h_3212423118(TEXT("/Script/ArrasisSurvival"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_Public_Actors_PickupItems_h_2374033080(TEXT("/Script/ArrasisSurvival"),
 		Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_Public_Actors_PickupItems_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_Public_Actors_PickupItems_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

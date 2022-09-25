@@ -32,6 +32,8 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
 		UCameraComponent* FollowCamera;
 
+	class UInventoryComponent* InventoryComp;
+
 private:
 	void MoveForward(float Axis);
 	void MoveRight(float Axis);
@@ -61,9 +63,11 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UFUNCTION(BlueprintCallable)
+		class UInventoryComponent* GetInventoryComp() { return InventoryComp; }
+
 public:
 	class UPlayerStatComponent* PlayerStatComp;
-	class UInventoryComponent* InventoryComp;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

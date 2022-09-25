@@ -31,5 +31,8 @@ public:
 		void DropItem(AActor* Item);
 
 	UFUNCTION(BlueprintCallable, Category = "ArrasisInventory|Inventory")
-		TArray<AActor*> GetInventoryItems() const { return Items; }
+		TArray<class AActor*> GetInventoryItems() { return Items; }
+
+	UFUNCTION(BlueprintCallable, Category = "ArrasisInventory|Inventory")
+		int32 GetCurrentInventoryCount() { return Items.Num() - 1; }
 };

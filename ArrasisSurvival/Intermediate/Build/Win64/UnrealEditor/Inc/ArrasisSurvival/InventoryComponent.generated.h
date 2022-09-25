@@ -17,12 +17,14 @@ class AActor;
 #define FID_ArrasisSurvival_Source_ArrasisSurvival_Public_InventoryComponent_h_13_SPARSE_DATA
 #define FID_ArrasisSurvival_Source_ArrasisSurvival_Public_InventoryComponent_h_13_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execGetCurrentInventoryCount); \
 	DECLARE_FUNCTION(execGetInventoryItems); \
 	DECLARE_FUNCTION(execDropItem);
 
 
 #define FID_ArrasisSurvival_Source_ArrasisSurvival_Public_InventoryComponent_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGetCurrentInventoryCount); \
 	DECLARE_FUNCTION(execGetInventoryItems); \
 	DECLARE_FUNCTION(execDropItem);
 

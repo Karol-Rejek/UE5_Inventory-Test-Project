@@ -13,10 +13,18 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 	ARRASISSURVIVAL_API UClass* Z_Construct_UClass_ASurvivalMan();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	UPackage* Z_Construct_UPackage__Script_ArrasisSurvival();
+	ARRASISSURVIVAL_API UClass* Z_Construct_UClass_UInventoryComponent_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(ASurvivalMan::execGetInventoryComp)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(UInventoryComponent**)Z_Param__Result=P_THIS->GetInventoryComp();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ASurvivalMan::execReturnStats)
 	{
 		P_GET_PROPERTY(FIntProperty,Z_Param_index);
@@ -51,10 +59,51 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 	{
 		UClass* Class = ASurvivalMan::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "GetInventoryComp", &ASurvivalMan::execGetInventoryComp },
 			{ "ReturnStats", &ASurvivalMan::execReturnStats },
 			{ "ServerInteract", &ASurvivalMan::execServerInteract },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ASurvivalMan_GetInventoryComp_Statics
+	{
+		struct SurvivalMan_eventGetInventoryComp_Parms
+		{
+			UInventoryComponent* ReturnValue;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ReturnValue_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASurvivalMan_GetInventoryComp_Statics::NewProp_ReturnValue_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ASurvivalMan_GetInventoryComp_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000080588, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(SurvivalMan_eventGetInventoryComp_Parms, ReturnValue), Z_Construct_UClass_UInventoryComponent_NoRegister, METADATA_PARAMS(Z_Construct_UFunction_ASurvivalMan_GetInventoryComp_Statics::NewProp_ReturnValue_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalMan_GetInventoryComp_Statics::NewProp_ReturnValue_MetaData)) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASurvivalMan_GetInventoryComp_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASurvivalMan_GetInventoryComp_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASurvivalMan_GetInventoryComp_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "SurvivalMan.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASurvivalMan_GetInventoryComp_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASurvivalMan, nullptr, "GetInventoryComp", nullptr, nullptr, sizeof(Z_Construct_UFunction_ASurvivalMan_GetInventoryComp_Statics::SurvivalMan_eventGetInventoryComp_Parms), Z_Construct_UFunction_ASurvivalMan_GetInventoryComp_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalMan_GetInventoryComp_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASurvivalMan_GetInventoryComp_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalMan_GetInventoryComp_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASurvivalMan_GetInventoryComp()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASurvivalMan_GetInventoryComp_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ASurvivalMan_ReturnStats_Statics
 	{
@@ -152,6 +201,7 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_ArrasisSurvival,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ASurvivalMan_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ASurvivalMan_GetInventoryComp, "GetInventoryComp" }, // 3446484214
 		{ &Z_Construct_UFunction_ASurvivalMan_ReturnStats, "ReturnStats" }, // 2292696375
 		{ &Z_Construct_UFunction_ASurvivalMan_ServerInteract, "ServerInteract" }, // 2724358520
 	};
@@ -218,9 +268,9 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_SurvivalMan_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ASurvivalMan, ASurvivalMan::StaticClass, TEXT("ASurvivalMan"), &Z_Registration_Info_UClass_ASurvivalMan, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASurvivalMan), 2373944601U) },
+		{ Z_Construct_UClass_ASurvivalMan, ASurvivalMan::StaticClass, TEXT("ASurvivalMan"), &Z_Registration_Info_UClass_ASurvivalMan, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASurvivalMan), 2806966501U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_SurvivalMan_h_1707644122(TEXT("/Script/ArrasisSurvival"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_SurvivalMan_h_3318669657(TEXT("/Script/ArrasisSurvival"),
 		Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_SurvivalMan_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_SurvivalMan_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

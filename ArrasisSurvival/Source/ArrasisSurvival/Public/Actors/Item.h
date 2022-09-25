@@ -21,6 +21,9 @@ protected:
 	UPROPERTY(EditAnywhere)
 		class UStaticMeshComponent* MeshComp;
 
+	UPROPERTY(EditAnywhere)
+		class UTexture2D* Icon;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -28,4 +31,7 @@ protected:
 public:	
 	virtual void Interact(ASurvivalMan* Character) override;
 	virtual void Use(ASurvivalMan* Character) override;
+
+	UFUNCTION(BlueprintCallable)
+		class UTexture2D* GetItemIcon() { return Icon; }
 };
