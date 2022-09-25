@@ -71,6 +71,9 @@
     <ClCompile Include="..\..\Source\ArrasisSurvival\Private\InteractableInterface.cpp">
       <Filter>Source\ArrasisSurvival\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\ArrasisSurvival\Private\InventoryComponent.cpp">
+      <Filter>Source\ArrasisSurvival\Private</Filter>
+    </ClCompile>
     <Filter Include="Source\ArrasisSurvival\Private\Actors">
       <UniqueIdentifier>{7C1A3C8C-E279-352C-8C11-98D4B135B0B6}</UniqueIdentifier>
     </Filter>
@@ -90,6 +93,9 @@
       <UniqueIdentifier>{EE3F2F40-DD0B-3C46-B245-AEB4C49A1AF8}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\ArrasisSurvival\Public\InteractableInterface.h">
+      <Filter>Source\ArrasisSurvival\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ArrasisSurvival\Public\InventoryComponent.h">
       <Filter>Source\ArrasisSurvival\Public</Filter>
     </ClInclude>
     <Filter Include="Source\ArrasisSurvival\Public\Actors">

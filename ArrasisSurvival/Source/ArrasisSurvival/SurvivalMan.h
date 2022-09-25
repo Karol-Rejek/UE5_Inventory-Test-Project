@@ -25,22 +25,14 @@ class ARRASISSURVIVAL_API ASurvivalMan : public ACharacter
 public:
 	// Sets default values for this character's properties
 	ASurvivalMan();
-
+protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
 		USpringArmComponent* CameraBoom;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
 		UCameraComponent* FollowCamera;
 
-	void Interact();
-	void Interact(FVector Start, FVector End);
-
-	UFUNCTION(Server, Reliable, WithValidation)
-		void ServerInteract(FVector Start, FVector End);
-	bool ServerInteract_Validate(FVector Start, FVector End);
-	void ServerInteract_Implementation(FVector Start, FVector End);
-
-
+private:
 	void MoveForward(float Axis);
 	void MoveRight(float Axis);
 
@@ -50,8 +42,16 @@ public:
 
 	void AttemptJump();
 
-	bool bDead;
 protected:
+	void Interact();
+	void Interact(FVector Start, FVector End);
+
+	UFUNCTION(Server, Reliable, WithValidation)
+		void ServerInteract(FVector Start, FVector End);
+	bool ServerInteract_Validate(FVector Start, FVector End);
+	void ServerInteract_Implementation(FVector Start, FVector End);
+
+	bool bDead;
 	bool bIsSprinting;
 
 	UFUNCTION(BlueprintPure)
@@ -63,6 +63,7 @@ protected:
 
 public:
 	class UPlayerStatComponent* PlayerStatComp;
+	class UInventoryComponent* InventoryComp;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

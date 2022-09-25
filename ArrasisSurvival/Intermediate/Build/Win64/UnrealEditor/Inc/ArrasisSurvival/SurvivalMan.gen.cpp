@@ -113,7 +113,7 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 		{ "ModuleRelativePath", "SurvivalMan.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASurvivalMan_ServerInteract_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASurvivalMan, nullptr, "ServerInteract", nullptr, nullptr, sizeof(SurvivalMan_eventServerInteract_Parms), Z_Construct_UFunction_ASurvivalMan_ServerInteract_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalMan_ServerInteract_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x80A20CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASurvivalMan_ServerInteract_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalMan_ServerInteract_Statics::Function_MetaDataParams)) };
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASurvivalMan_ServerInteract_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASurvivalMan, nullptr, "ServerInteract", nullptr, nullptr, sizeof(SurvivalMan_eventServerInteract_Parms), Z_Construct_UFunction_ASurvivalMan_ServerInteract_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalMan_ServerInteract_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x80A80CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASurvivalMan_ServerInteract_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalMan_ServerInteract_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_ASurvivalMan_ServerInteract()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -153,7 +153,7 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ASurvivalMan_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ASurvivalMan_ReturnStats, "ReturnStats" }, // 2292696375
-		{ &Z_Construct_UFunction_ASurvivalMan_ServerInteract, "ServerInteract" }, // 2226916686
+		{ &Z_Construct_UFunction_ASurvivalMan_ServerInteract, "ServerInteract" }, // 2724358520
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASurvivalMan_Statics::Class_MetaDataParams[] = {
@@ -169,7 +169,7 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 		{ "ModuleRelativePath", "SurvivalMan.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASurvivalMan_Statics::NewProp_CameraBoom = { "CameraBoom", nullptr, (EPropertyFlags)0x00100000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASurvivalMan, CameraBoom), Z_Construct_UClass_USpringArmComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASurvivalMan_Statics::NewProp_CameraBoom_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalMan_Statics::NewProp_CameraBoom_MetaData)) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASurvivalMan_Statics::NewProp_CameraBoom = { "CameraBoom", nullptr, (EPropertyFlags)0x00200800000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASurvivalMan, CameraBoom), Z_Construct_UClass_USpringArmComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASurvivalMan_Statics::NewProp_CameraBoom_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalMan_Statics::NewProp_CameraBoom_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASurvivalMan_Statics::NewProp_FollowCamera_MetaData[] = {
 		{ "Category", "Camera" },
@@ -177,7 +177,7 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 		{ "ModuleRelativePath", "SurvivalMan.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASurvivalMan_Statics::NewProp_FollowCamera = { "FollowCamera", nullptr, (EPropertyFlags)0x00100000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASurvivalMan, FollowCamera), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASurvivalMan_Statics::NewProp_FollowCamera_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalMan_Statics::NewProp_FollowCamera_MetaData)) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASurvivalMan_Statics::NewProp_FollowCamera = { "FollowCamera", nullptr, (EPropertyFlags)0x00200800000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASurvivalMan, FollowCamera), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASurvivalMan_Statics::NewProp_FollowCamera_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASurvivalMan_Statics::NewProp_FollowCamera_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASurvivalMan_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalMan_Statics::NewProp_CameraBoom,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASurvivalMan_Statics::NewProp_FollowCamera,
@@ -218,9 +218,9 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_SurvivalMan_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ASurvivalMan, ASurvivalMan::StaticClass, TEXT("ASurvivalMan"), &Z_Registration_Info_UClass_ASurvivalMan, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASurvivalMan), 4065957135U) },
+		{ Z_Construct_UClass_ASurvivalMan, ASurvivalMan::StaticClass, TEXT("ASurvivalMan"), &Z_Registration_Info_UClass_ASurvivalMan, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASurvivalMan), 2373944601U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_SurvivalMan_h_3827369937(TEXT("/Script/ArrasisSurvival"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_SurvivalMan_h_1707644122(TEXT("/Script/ArrasisSurvival"),
 		Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_SurvivalMan_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_SurvivalMan_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

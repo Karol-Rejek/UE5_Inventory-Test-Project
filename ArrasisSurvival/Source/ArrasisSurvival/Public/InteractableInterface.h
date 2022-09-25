@@ -26,4 +26,5 @@ public:
 	virtual void BeginPlay() = 0;
 	virtual void Interact(ASurvivalMan* Character) = 0;
 	virtual void Use(ASurvivalMan* Character) {};
+	virtual void Drop() {};
 };

@@ -19,9 +19,19 @@ public:
 	APickupItems();
 
 protected:
+	UPROPERTY(ReplicatedUsing = OnRep_PickedUp)
+		bool ObjectPickedUp;
+
+	UFUNCTION()
+		void OnRep_PickedUp();
+
+protected:
 	virtual void BeginPlay() override;
 
 public:
+	void InInventory(bool In);
+
 	virtual void Interact(ASurvivalMan* Character) override;
 	virtual void Use(ASurvivalMan* Character) override;
+	virtual void Drop() override;
 };

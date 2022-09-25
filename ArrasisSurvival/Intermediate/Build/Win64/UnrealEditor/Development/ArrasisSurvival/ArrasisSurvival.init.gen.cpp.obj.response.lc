@@ -1,6 +1,6 @@
-D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Inc\ArrasisSurvival\ArrasisSurvival.init.gen.cpp
+D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Inc\ArrasisSurvival\ArrasisSurvival.init.gen.cpp
 /I .
-/I D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Source\ArrasisSurvival\Private
+/I D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Source\ArrasisSurvival\Private
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\Engine
 /I Runtime
 /I ..\Shaders\Shared
@@ -252,9 +252,9 @@ D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\In
 /I Runtime\ClothingSystemRuntimeInterface\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\AnimationDataController
 /I Developer\AnimationDataController\Public
-/I D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Inc\ArrasisSurvival
-/I D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Source
-/I D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Source\ArrasisSurvival\Public
+/I D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Inc\ArrasisSurvival
+/I D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Source
+/I D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Source\ArrasisSurvival\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\AugmentedReality
 /I Runtime\AugmentedReality\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\MRMesh
@@ -279,12 +279,12 @@ D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\In
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt"
-/FI"D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\ArrasisSurvivalEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/FI"D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\Definitions.ArrasisSurvival.h"
-/Yu"D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\ArrasisSurvivalEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\ArrasisSurvivalEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
-/Fo"D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\ArrasisSurvival.init.gen.cpp.lc.obj"
-/sourceDependencies"D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\ArrasisSurvival.init.gen.cpp.lc.json"
+/FI"D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Intermediate\Build\Win64\ArrasisSurvivalEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/FI"D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\Definitions.ArrasisSurvival.h"
+/Yu"D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Intermediate\Build\Win64\ArrasisSurvivalEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Fp"D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Intermediate\Build\Win64\ArrasisSurvivalEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
+/Fo"D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\ArrasisSurvival.init.gen.cpp.lc.obj"
+/sourceDependencies"D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\ArrasisSurvival.init.gen.cpp.lc.json"
 /Zc:inline
 /nologo
 /Oi

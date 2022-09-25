@@ -158,9 +158,9 @@ void EmptyLinkFunctionForGeneratedCodeEdibleItems() {}
 		{ EPikupType_StaticEnum, TEXT("EPikupType"), &Z_Registration_Info_UEnum_EPikupType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 204210704U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_Public_Actors_PickUpItems_EdibleItems_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AEdibleItems, AEdibleItems::StaticClass, TEXT("AEdibleItems"), &Z_Registration_Info_UClass_AEdibleItems, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEdibleItems), 685330263U) },
+		{ Z_Construct_UClass_AEdibleItems, AEdibleItems::StaticClass, TEXT("AEdibleItems"), &Z_Registration_Info_UClass_AEdibleItems, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEdibleItems), 3298617583U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_Public_Actors_PickUpItems_EdibleItems_h_1559857141(TEXT("/Script/ArrasisSurvival"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_Public_Actors_PickUpItems_EdibleItems_h_3619389692(TEXT("/Script/ArrasisSurvival"),
 		Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_Public_Actors_PickUpItems_EdibleItems_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_Public_Actors_PickUpItems_EdibleItems_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_Public_Actors_PickUpItems_EdibleItems_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_Public_Actors_PickUpItems_EdibleItems_h_Statics::EnumInfo));

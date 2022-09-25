@@ -1,24 +1,5 @@
 ﻿  Using bundled DotNet SDK
   Log file: C:\Users\karol\AppData\Local\UnrealBuildTool\Log.txt
-  Using 'git status' to determine working set for adaptive non-unity build (D:\GameByKR\UE5_Arrasis).
-  Invalidating makefile for ArrasisSurvivalEditor (UnrealEditor-ArrasisSurvival.lib.response modified)
-  Parsing headers for ArrasisSurvivalEditor
-    Running UnrealHeaderTool "D:\GameByKR\UE5_Arrasis\ArrasisSurvival\ArrasisSurvival.uproject" "D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\ArrasisSurvivalEditor\Development\ArrasisSurvivalEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\karol\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-  Reflection code generated for ArrasisSurvivalEditor in 1,5658749 seconds
-  Building ArrasisSurvivalEditor...
-  Using Visual Studio 2022 14.33.31630 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629) and Windows 10.0.22000.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  Determining max actions to execute in parallel (8 physical cores, 16 logical cores)
-    Executing up to 8 processes, one per physical core
-    Requested 1,5 GB free memory per action, 8,76 GB available: limiting max parallel actions to 5
-  Building 7 actions with 5 processes...
-  [1/7] Compile ArrasisSurvival.init.gen.cpp
-  [2/7] Compile EdibleItems.gen.cpp
-  [3/7] Compile EdibleItems.cpp
-  [4/7] Compile SurvivalMan.cpp
-  [5/7] Link UnrealEditor-ArrasisSurvival.lib
-     Trwa tworzenie biblioteki D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\UnrealEditor-ArrasisSurvival.lib i obiektu D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\UnrealEditor-ArrasisSurvival.exp
-  [6/7] Link UnrealEditor-ArrasisSurvival.dll
-     Trwa tworzenie biblioteki D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\UnrealEditor-ArrasisSurvival.suppressed.lib i obiektu D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\UnrealEditor-ArrasisSurvival.suppressed.exp
-  [7/7] WriteMetadata ArrasisSurvivalEditor.target
-  Total time in Parallel executor: 11,84 seconds
-  Total execution time: 15,04 seconds
+  Using 'git status' to determine working set for adaptive non-unity build (D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival).
+  Target is up to date
+  Total execution time: 0,48 seconds

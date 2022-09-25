@@ -4,6 +4,7 @@
 #include "SurvivalMan.h"
 
 #include "PlayerStatComponent.h"
+#include "Public/InventoryComponent.h"
 #include "Actors/Item.h"
 
 #include "Components/SkeletalMeshComponent.h"
@@ -44,6 +45,7 @@ ASurvivalMan::ASurvivalMan()
 	bIsSprinting = false;
 
 	PlayerStatComp = CreateDefaultSubobject<UPlayerStatComponent>("PlayerStatComponent");
+	InventoryComp = CreateDefaultSubobject<UInventoryComponent>("InventoryComponent");
 }
 
 // Called when the game starts or when spawned
@@ -116,7 +118,8 @@ void ASurvivalMan::ServerInteract_Implementation(FVector Start, FVector End)
 	{
 		if (IInteractableInterface* Interface = Cast<IInteractableInterface>(HitResult.GetActor()))
 		{
-			Interface->Use(this);
+			Interface->Interact(this);
+			InventoryComp->AddItem(HitResult.GetActor());
 		}
 	}
 }

@@ -64,5 +64,5 @@
 /DPROJECT_COPYRIGHT_STRING="Fill out your copyright notice in the Description page of Project Settings."
 /DPROJECT_PRODUCT_NAME="Third Person Game Template"
 /DPROJECT_PRODUCT_IDENTIFIER=ArrasisSurvival
-/fo "D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\Default.rc2.res"
+/fo "D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\Default.rc2.res"
 "..\Build\Windows\Resources\Default.rc2"

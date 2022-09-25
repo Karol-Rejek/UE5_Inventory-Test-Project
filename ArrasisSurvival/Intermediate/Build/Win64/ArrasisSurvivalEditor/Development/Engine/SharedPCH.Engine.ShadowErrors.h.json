@@ -1,10 +1,10 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "d:\\gamebykr\\ue5_arrasis\\arrasissurvival\\intermediate\\build\\win64\\arrasissurvivaleditor\\development\\engine\\sharedpch.engine.shadowerrors.cpp",
+        "Source": "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival\\intermediate\\build\\win64\\arrasissurvivaleditor\\development\\engine\\sharedpch.engine.shadowerrors.cpp",
         "ProvidedModule": "",
         "Includes": [
-            "d:\\gamebykr\\ue5_arrasis\\arrasissurvival\\intermediate\\build\\win64\\arrasissurvivaleditor\\development\\engine\\sharedpch.engine.shadowerrors.h",
+            "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival\\intermediate\\build\\win64\\arrasissurvivaleditor\\development\\engine\\sharedpch.engine.shadowerrors.h",
             "c:\\engines\\unreal\\ue_5.0\\engine\\source\\runtime\\engine\\public\\enginesharedpch.h",
             "c:\\engines\\unreal\\ue_5.0\\engine\\source\\runtime\\core\\public\\containers\\containersfwd.h",
             "c:\\engines\\unreal\\ue_5.0\\engine\\source\\runtime\\core\\public\\hal\\platform.h",

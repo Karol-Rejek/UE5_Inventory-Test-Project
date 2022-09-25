@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "ArrasisSurvival",
-			"Path": "D:\\GameByKR\\UE5_Arrasis\\ArrasisSurvival\\Source\\ArrasisSurvival.Target.cs",
+			"Path": "D:\\GameByKR\\UE5_ArrasisSurvival\\UE5_ArrasisSurvival\\ArrasisSurvival\\Source\\ArrasisSurvival.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "ArrasisSurvivalEditor",
-			"Path": "D:\\GameByKR\\UE5_Arrasis\\ArrasisSurvival\\Source\\ArrasisSurvivalEditor.Target.cs",
+			"Path": "D:\\GameByKR\\UE5_ArrasisSurvival\\UE5_ArrasisSurvival\\ArrasisSurvival\\Source\\ArrasisSurvivalEditor.Target.cs",
 			"Type": "Editor"
 		}
 	]

@@ -1,7 +1,8 @@
-D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Source\ArrasisSurvival\Public\Actors\Item.h
-D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Source\ArrasisSurvival\Public\InteractableInterface.h
-D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Source\ArrasisSurvival\Public\Actors\PickupItems.h
-D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Source\ArrasisSurvival\Public\Actors\PickUpItems\EdibleItems.h
-D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Source\ArrasisSurvival\SurvivalMan_GameMode.h
-D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Source\ArrasisSurvival\SurvivalMan.h
-D:\GameByKR\UE5_Arrasis\ArrasisSurvival\Source\ArrasisSurvival\PlayerStatComponent.h
+D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Source\ArrasisSurvival\Public\Actors\PickUpItems\EdibleItems.h
+D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Source\ArrasisSurvival\Public\Actors\PickupItems.h
+D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Source\ArrasisSurvival\Public\InventoryComponent.h
+D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Source\ArrasisSurvival\Public\InteractableInterface.h
+D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Source\ArrasisSurvival\Public\Actors\Item.h
+D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Source\ArrasisSurvival\SurvivalMan.h
+D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Source\ArrasisSurvival\SurvivalMan_GameMode.h
+D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Source\ArrasisSurvival\PlayerStatComponent.h
