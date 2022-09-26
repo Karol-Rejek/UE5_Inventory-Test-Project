@@ -3,6 +3,7 @@
 
 #include "InventoryComponent.h"
 #include "InteractableInterface.h"
+#include "Net/UnrealNetwork.h"
 
 // Sets default values for this component's properties
 UInventoryComponent::UInventoryComponent()
@@ -23,25 +24,86 @@ void UInventoryComponent::BeginPlay()
 	
 }
 
+void UInventoryComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	// REplicate to everyone
+	DOREPLIFETIME(UInventoryComponent, Items);
+}
+
 void UInventoryComponent::AddItem(AActor* Item)
 {
-	if (Item)
+	if (GetOwnerRole() == ROLE_Authority)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Picked Up Item: %s"), *Item->GetName());
-		Items.Add(Item);
+		if (Item)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Picked Up Item: %s"), *Item->GetName());
+			Items.Add(Item);
+		}
 	}
 }
 
-void UInventoryComponent::DropItem(AActor* Item)
+bool UInventoryComponent::ChechIfClientHasItem(AActor* Item)
 {
-	if (int FoundIndex = Items.Find(Item))
+	for (AActor* Pickup : Items)
+	{
+		if (Pickup == Item)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+bool UInventoryComponent::RemoveItemFromInventory(AActor* Item)
+{
+	int FoundIndex = Items.Find(Item);
+	if (FoundIndex != INDEX_NONE)
 	{
 		if (IInteractableInterface* Interface = Cast<IInteractableInterface>(Item))
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Dropping Item: %s"), *Item->GetName());
 			Interface->Drop();
 			Items.RemoveAt(FoundIndex);
+			return true;
 		}
 	}
+	return false;
+}
 
+bool UInventoryComponent::Server_DropItem_Validate(AActor* Item)
+{
+	return ChechIfClientHasItem(Item);
+}
+
+void UInventoryComponent::Server_DropItem_Implementation(AActor* Item)
+{
+	if (GetOwnerRole() == ROLE_Authority)
+	{
+		FVector Location = GetOwner()->GetActorLocation();
+		Location.X += FMath::RandRange(-50.0f, 100.0f);
+		Location.Y += FMath::RandRange(-50.0f, 100.0f);
+		FVector EndRay = Location;
+		EndRay.Z -= 500.0f;
+
+		FHitResult HitResult;
+		FCollisionObjectQueryParams ObjQuery;
+		FCollisionQueryParams CollisionParams;
+		CollisionParams.AddIgnoredActor(GetOwner());
+
+		GetWorld()->LineTraceSingleByObjectType(OUT HitResult, Location, EndRay, ObjQuery, CollisionParams);
+
+		if (HitResult.ImpactPoint != FVector::ZeroVector)
+		{
+			Location = HitResult.ImpactPoint;
+		}
+		Item->SetActorLocation(Location);
+		RemoveItemFromInventory(Item);
+	}
+}
+
+void UInventoryComponent::DropItem(AActor* Item)
+{
+	Server_DropItem(Item);
 }

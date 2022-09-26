@@ -30,7 +30,14 @@ void APickupItems::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 void APickupItems::OnRep_PickedUp()
 {
 	this->MeshComp->SetHiddenInGame(ObjectPickedUp);
-	this->SetActorHiddenInGame(!ObjectPickedUp);
+	if (ObjectPickedUp)
+	{
+		this->MeshComp->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	}
+	else
+	{
+		this->MeshComp->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	}
 }
 
 void APickupItems::InInventory(bool In)
@@ -57,5 +64,6 @@ void APickupItems::Use(ASurvivalMan* Character)
 
 void APickupItems::Drop()
 {
+	InInventory(false);
 }
 

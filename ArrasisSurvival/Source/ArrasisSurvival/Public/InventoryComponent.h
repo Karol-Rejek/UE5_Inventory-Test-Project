@@ -20,8 +20,16 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-	UPROPERTY(BlueprintReadOnly, Category = "Inventory")
+	UPROPERTY(Replicated, BlueprintReadOnly, Category = "Inventory")
 		TArray<AActor*> Items;
+
+	UFUNCTION(Server, Reliable, WithValidation)
+		void Server_DropItem(class AActor* Item);
+	bool Server_DropItem_Validate(class AActor* Item);
+	void Server_DropItem_Implementation(class AActor* Item);
+
+	bool ChechIfClientHasItem(class AActor* Item);
+	bool RemoveItemFromInventory(class AActor* Item);
 
 public:	
 	void AddItem(AActor* Item);
