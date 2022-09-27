@@ -6,8 +6,8 @@
 
 APickupItems::APickupItems()
 {
+	bReplicates = true;
 	ObjectPickedUp = false;
-
 }
 
 void APickupItems::BeginPlay()

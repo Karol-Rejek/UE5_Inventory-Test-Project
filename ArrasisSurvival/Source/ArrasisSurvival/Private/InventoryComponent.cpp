@@ -29,7 +29,7 @@ void UInventoryComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
 	// REplicate to everyone
-	DOREPLIFETIME(UInventoryComponent, Items);
+	DOREPLIFETIME_CONDITION(UInventoryComponent, Items, COND_OwnerOnly);
 }
 
 void UInventoryComponent::AddItem(AActor* Item)
@@ -58,15 +58,18 @@ bool UInventoryComponent::ChechIfClientHasItem(AActor* Item)
 
 bool UInventoryComponent::RemoveItemFromInventory(AActor* Item)
 {
-	int FoundIndex = Items.Find(Item);
-	if (FoundIndex != INDEX_NONE)
+	if (GetOwnerRole() == ROLE_Authority)
 	{
-		if (IInteractableInterface* Interface = Cast<IInteractableInterface>(Item))
+		int FoundIndex = Items.Find(Item);
+		if (FoundIndex != INDEX_NONE)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Dropping Item: %s"), *Item->GetName());
-			Interface->Drop();
-			Items.RemoveAt(FoundIndex);
-			return true;
+			if (IInteractableInterface* Interface = Cast<IInteractableInterface>(Item))
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Dropping Item: %s"), *Item->GetName());
+				Interface->Drop();
+				Items.RemoveAt(FoundIndex);
+				return true;
+			}
 		}
 	}
 	return false;
