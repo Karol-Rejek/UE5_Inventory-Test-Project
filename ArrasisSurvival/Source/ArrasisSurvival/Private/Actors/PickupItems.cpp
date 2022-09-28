@@ -2,6 +2,7 @@
 
 
 #include "Actors/PickupItems.h"
+#include "ArrasisSurvival/SurvivalMan.h"
 #include "Net/UnrealNetwork.h"
 
 APickupItems::APickupItems()
@@ -51,9 +52,10 @@ void APickupItems::InInventory(bool In)
 
 void APickupItems::Interact(ASurvivalMan* Character)
 {
-	if (Character)
+	if (HasAuthority() && Character)
 	{
 		InInventory(true);
+		Character->AddItemToInventoryWidget(this);
 	}
 }
 

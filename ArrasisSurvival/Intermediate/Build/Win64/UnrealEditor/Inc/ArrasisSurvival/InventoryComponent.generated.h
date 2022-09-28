@@ -22,6 +22,7 @@ class AActor;
 	DECLARE_FUNCTION(execGetCurrentInventoryCount); \
 	DECLARE_FUNCTION(execGetInventoryItems); \
 	DECLARE_FUNCTION(execDropItem); \
+	DECLARE_FUNCTION(execAddItem); \
 	DECLARE_FUNCTION(execServer_DropItem);
 
 
@@ -30,6 +31,7 @@ class AActor;
 	DECLARE_FUNCTION(execGetCurrentInventoryCount); \
 	DECLARE_FUNCTION(execGetInventoryItems); \
 	DECLARE_FUNCTION(execDropItem); \
+	DECLARE_FUNCTION(execAddItem); \
 	DECLARE_FUNCTION(execServer_DropItem);
 
 

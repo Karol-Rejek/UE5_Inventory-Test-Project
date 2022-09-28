@@ -19,9 +19,15 @@ public:
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
+#pragma region ItemsFunctions
+
+
 
 	UPROPERTY(Replicated, BlueprintReadOnly, Category = "Inventory")
 		TArray<AActor*> Items;
+
+	/*UFUNCTION()
+		void OnRep_Items();*/
 
 	UFUNCTION(Server, Reliable, WithValidation)
 		void Server_DropItem(class AActor* Item);
@@ -30,11 +36,12 @@ protected:
 
 	bool ChechIfClientHasItem(class AActor* Item);
 	bool RemoveItemFromInventory(class AActor* Item);
-
+#pragma endregion
 public:	
-	void AddItem(AActor* Item);
-		
 
+	UFUNCTION(BlueprintCallable, Category = "ArrasisInventory|Inventory")
+		void AddItem(AActor* Item);
+		
 	UFUNCTION(BlueprintCallable, Category = "ArrasisInventory|Inventory")
 		void DropItem(AActor* Item);
 

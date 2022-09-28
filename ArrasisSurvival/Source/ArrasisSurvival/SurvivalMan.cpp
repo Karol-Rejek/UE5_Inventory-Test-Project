@@ -119,7 +119,7 @@ void ASurvivalMan::ServerInteract_Implementation(FVector Start, FVector End)
 		if (IInteractableInterface* Interface = Cast<IInteractableInterface>(HitResult.GetActor()))
 		{
 			Interface->Interact(this);
-			InventoryComp->AddItem(HitResult.GetActor());
+			//InventoryComp->AddItem(HitResult.GetActor());
 		}
 	}
 }

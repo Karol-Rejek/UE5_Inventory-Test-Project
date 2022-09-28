@@ -32,6 +32,18 @@ void UInventoryComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 	DOREPLIFETIME_CONDITION(UInventoryComponent, Items, COND_OwnerOnly);
 }
 
+//void UInventoryComponent::OnRep_Items()
+//{
+//	if (Items.Num())
+//	{
+//		AddItemToInventoryWidget(Items[Items.Num() - 1], Items);
+//	}
+//	else
+//	{
+//		AddItemToInventoryWidget(AActor(), Items);
+//	}
+//}
+
 void UInventoryComponent::AddItem(AActor* Item)
 {
 	if (GetOwnerRole() == ROLE_Authority)
