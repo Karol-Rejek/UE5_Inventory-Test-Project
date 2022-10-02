@@ -14,6 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeInventoryComponent() {}
 	ENGINE_API UClass* Z_Construct_UClass_UActorComponent();
 	UPackage* Z_Construct_UPackage__Script_ArrasisSurvival();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+	ARRASISSURVIVAL_API UClass* Z_Construct_UClass_AItem_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(UInventoryComponent::execGetInventoryCapacity)
 	{
@@ -36,12 +37,33 @@ void EmptyLinkFunctionForGeneratedCodeInventoryComponent() {}
 		*(TArray<AActor*>*)Z_Param__Result=P_THIS->GetInventoryItems();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UInventoryComponent::execUseItem)
+	{
+		P_GET_OBJECT(AItem,Z_Param_Item);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->UseItem(Z_Param_Item);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UInventoryComponent::execDropItem)
 	{
 		P_GET_OBJECT(AActor,Z_Param_Item);
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->DropItem(Z_Param_Item);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UInventoryComponent::execServer_UseItem)
+	{
+		P_GET_OBJECT(AItem,Z_Param_Item);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		if (!P_THIS->Server_UseItem_Validate(Z_Param_Item))
+		{
+			RPC_ValidateFailed(TEXT("Server_UseItem_Validate"));
+			return;
+		}
+		P_THIS->Server_UseItem_Implementation(Z_Param_Item);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UInventoryComponent::execServer_DropItem)
@@ -64,6 +86,13 @@ void EmptyLinkFunctionForGeneratedCodeInventoryComponent() {}
 		Parms.Item=Item;
 		ProcessEvent(FindFunctionChecked(NAME_UInventoryComponent_Server_DropItem),&Parms);
 	}
+	static FName NAME_UInventoryComponent_Server_UseItem = FName(TEXT("Server_UseItem"));
+	void UInventoryComponent::Server_UseItem(AItem* Item)
+	{
+		InventoryComponent_eventServer_UseItem_Parms Parms;
+		Parms.Item=Item;
+		ProcessEvent(FindFunctionChecked(NAME_UInventoryComponent_Server_UseItem),&Parms);
+	}
 	void UInventoryComponent::StaticRegisterNativesUInventoryComponent()
 	{
 		UClass* Class = UInventoryComponent::StaticClass();
@@ -73,6 +102,8 @@ void EmptyLinkFunctionForGeneratedCodeInventoryComponent() {}
 			{ "GetInventoryCapacity", &UInventoryComponent::execGetInventoryCapacity },
 			{ "GetInventoryItems", &UInventoryComponent::execGetInventoryItems },
 			{ "Server_DropItem", &UInventoryComponent::execServer_DropItem },
+			{ "Server_UseItem", &UInventoryComponent::execServer_UseItem },
+			{ "UseItem", &UInventoryComponent::execUseItem },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -239,6 +270,67 @@ void EmptyLinkFunctionForGeneratedCodeInventoryComponent() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UInventoryComponent_Server_UseItem_Statics
+	{
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_Item;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UInventoryComponent_Server_UseItem_Statics::NewProp_Item = { "Item", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(InventoryComponent_eventServer_UseItem_Parms, Item), Z_Construct_UClass_AItem_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventoryComponent_Server_UseItem_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_Server_UseItem_Statics::NewProp_Item,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UInventoryComponent_Server_UseItem_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/InventoryComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventoryComponent_Server_UseItem_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventoryComponent, nullptr, "Server_UseItem", nullptr, nullptr, sizeof(InventoryComponent_eventServer_UseItem_Parms), Z_Construct_UFunction_UInventoryComponent_Server_UseItem_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_Server_UseItem_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x80280CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UInventoryComponent_Server_UseItem_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_Server_UseItem_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UInventoryComponent_Server_UseItem()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInventoryComponent_Server_UseItem_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UInventoryComponent_UseItem_Statics
+	{
+		struct InventoryComponent_eventUseItem_Parms
+		{
+			AItem* Item;
+		};
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_Item;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UInventoryComponent_UseItem_Statics::NewProp_Item = { "Item", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(InventoryComponent_eventUseItem_Parms, Item), Z_Construct_UClass_AItem_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventoryComponent_UseItem_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_UseItem_Statics::NewProp_Item,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UInventoryComponent_UseItem_Statics::Function_MetaDataParams[] = {
+		{ "Category", "ArrasisInventory|Inventory" },
+		{ "ModuleRelativePath", "Public/InventoryComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventoryComponent_UseItem_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventoryComponent, nullptr, "UseItem", nullptr, nullptr, sizeof(Z_Construct_UFunction_UInventoryComponent_UseItem_Statics::InventoryComponent_eventUseItem_Parms), Z_Construct_UFunction_UInventoryComponent_UseItem_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_UseItem_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UInventoryComponent_UseItem_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_UseItem_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UInventoryComponent_UseItem()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInventoryComponent_UseItem_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UInventoryComponent);
 	UClass* Z_Construct_UClass_UInventoryComponent_NoRegister()
 	{
@@ -270,6 +362,8 @@ void EmptyLinkFunctionForGeneratedCodeInventoryComponent() {}
 		{ &Z_Construct_UFunction_UInventoryComponent_GetInventoryCapacity, "GetInventoryCapacity" }, // 1976049833
 		{ &Z_Construct_UFunction_UInventoryComponent_GetInventoryItems, "GetInventoryItems" }, // 3876550332
 		{ &Z_Construct_UFunction_UInventoryComponent_Server_DropItem, "Server_DropItem" }, // 3759010150
+		{ &Z_Construct_UFunction_UInventoryComponent_Server_UseItem, "Server_UseItem" }, // 3277351092
+		{ &Z_Construct_UFunction_UInventoryComponent_UseItem, "UseItem" }, // 1919579032
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UInventoryComponent_Statics::Class_MetaDataParams[] = {
@@ -337,9 +431,9 @@ void EmptyLinkFunctionForGeneratedCodeInventoryComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_Public_InventoryComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UInventoryComponent, UInventoryComponent::StaticClass, TEXT("UInventoryComponent"), &Z_Registration_Info_UClass_UInventoryComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInventoryComponent), 3806867717U) },
+		{ Z_Construct_UClass_UInventoryComponent, UInventoryComponent::StaticClass, TEXT("UInventoryComponent"), &Z_Registration_Info_UClass_UInventoryComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInventoryComponent), 2438733939U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_Public_InventoryComponent_h_2971259753(TEXT("/Script/ArrasisSurvival"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_Public_InventoryComponent_h_968160321(TEXT("/Script/ArrasisSurvival"),
 		Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_Public_InventoryComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_Public_InventoryComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

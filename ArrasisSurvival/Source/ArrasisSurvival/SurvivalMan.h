@@ -41,7 +41,7 @@ private:
 	void StartSprinting();
 	void StopSprinting();
 	void HandleSprinting();
-
+	
 	void AttemptJump();
 
 protected:

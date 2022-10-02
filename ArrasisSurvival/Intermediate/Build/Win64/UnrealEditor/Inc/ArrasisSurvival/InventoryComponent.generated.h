@@ -9,6 +9,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AActor;
+class AItem;
 #ifdef ARRASISSURVIVAL_InventoryComponent_generated_h
 #error "InventoryComponent.generated.h already included, missing '#pragma once' in InventoryComponent.h"
 #endif
@@ -16,13 +17,17 @@ class AActor;
 
 #define FID_ArrasisSurvival_Source_ArrasisSurvival_Public_InventoryComponent_h_14_SPARSE_DATA
 #define FID_ArrasisSurvival_Source_ArrasisSurvival_Public_InventoryComponent_h_14_RPC_WRAPPERS \
+	virtual bool Server_UseItem_Validate(AItem* ); \
+	virtual void Server_UseItem_Implementation(AItem* Item); \
 	virtual bool Server_DropItem_Validate(AActor* ); \
 	virtual void Server_DropItem_Implementation(AActor* Item); \
  \
 	DECLARE_FUNCTION(execGetInventoryCapacity); \
 	DECLARE_FUNCTION(execGetCurrentInventoryCount); \
 	DECLARE_FUNCTION(execGetInventoryItems); \
+	DECLARE_FUNCTION(execUseItem); \
 	DECLARE_FUNCTION(execDropItem); \
+	DECLARE_FUNCTION(execServer_UseItem); \
 	DECLARE_FUNCTION(execServer_DropItem);
 
 
@@ -31,7 +36,9 @@ class AActor;
 	DECLARE_FUNCTION(execGetInventoryCapacity); \
 	DECLARE_FUNCTION(execGetCurrentInventoryCount); \
 	DECLARE_FUNCTION(execGetInventoryItems); \
+	DECLARE_FUNCTION(execUseItem); \
 	DECLARE_FUNCTION(execDropItem); \
+	DECLARE_FUNCTION(execServer_UseItem); \
 	DECLARE_FUNCTION(execServer_DropItem);
 
 
@@ -39,6 +46,10 @@ class AActor;
 	struct InventoryComponent_eventServer_DropItem_Parms \
 	{ \
 		AActor* Item; \
+	}; \
+	struct InventoryComponent_eventServer_UseItem_Parms \
+	{ \
+		AItem* Item; \
 	};
 
 

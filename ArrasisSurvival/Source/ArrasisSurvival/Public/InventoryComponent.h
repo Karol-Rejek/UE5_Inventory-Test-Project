@@ -34,6 +34,11 @@ protected:
 	bool ChechIfClientHasItem(class AActor* Item);
 	bool RemoveItemFromInventory(class AActor* Item);
 
+	UFUNCTION(Server, Reliable, WithValidation)
+		void Server_UseItem(class AItem* Item);
+	bool Server_UseItem_Validate(class AItem* Item);
+	void Server_UseItem_Implementation(class AItem* Item);
+
 public:	
 		
 
@@ -41,6 +46,9 @@ public:
 		
 	UFUNCTION(BlueprintCallable, Category = "ArrasisInventory|Inventory")
 		void DropItem(AActor* Item);
+
+	UFUNCTION(BlueprintCallable, Category = "ArrasisInventory|Inventory")
+		void UseItem(AItem* Item);
 
 	UFUNCTION(BlueprintCallable, Category = "ArrasisInventory|Inventory")
 		TArray<class AActor*> GetInventoryItems() { return Items; }

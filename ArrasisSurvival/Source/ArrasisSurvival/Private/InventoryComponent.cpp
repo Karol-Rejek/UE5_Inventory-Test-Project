@@ -3,12 +3,13 @@
 
 #include "InventoryComponent.h"
 #include "InteractableInterface.h"
+#include "Actors/Item.h"
 #include "Net/UnrealNetwork.h"
 
 // Sets default values for this component's properties
 UInventoryComponent::UInventoryComponent()
 {
-	InventoryCapacity = 30;
+	InventoryCapacity = 36;
 }
 
 // Called when the game starts
@@ -104,4 +105,26 @@ void UInventoryComponent::Server_DropItem_Implementation(AActor* Item)
 void UInventoryComponent::DropItem(AActor* Item)
 {
 	Server_DropItem(Item);
+}
+
+bool UInventoryComponent::Server_UseItem_Validate(AItem* Item)
+{
+	return ChechIfClientHasItem(Item);
+}
+
+void UInventoryComponent::Server_UseItem_Implementation(AItem* Item)
+{
+	if (GetOwnerRole() == ROLE_Authority)
+	{
+		if (ASurvivalMan* Player = Cast<ASurvivalMan>(GetOwner()))
+		{
+			Item->Use(Player);
+			RemoveItemFromInventory(Item);
+		}
+	}
+}
+
+void UInventoryComponent::UseItem(AItem* Item)
+{
+	Server_UseItem(Item);
 }
