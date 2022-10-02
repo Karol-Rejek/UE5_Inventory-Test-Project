@@ -8,20 +8,15 @@
 // Sets default values for this component's properties
 UInventoryComponent::UInventoryComponent()
 {
-	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
-	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = false;
-
-	
+	InventoryCapacity = 30;
 }
-
 
 // Called when the game starts
 void UInventoryComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	
+	SetIsReplicated(true);
 }
 
 void UInventoryComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
@@ -29,20 +24,8 @@ void UInventoryComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& 
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
 	// REplicate to everyone
-	DOREPLIFETIME_CONDITION(UInventoryComponent, Items, COND_OwnerOnly);
+	DOREPLIFETIME(UInventoryComponent, Items);
 }
-
-//void UInventoryComponent::OnRep_Items()
-//{
-//	if (Items.Num())
-//	{
-//		AddItemToInventoryWidget(Items[Items.Num() - 1], Items);
-//	}
-//	else
-//	{
-//		AddItemToInventoryWidget(AActor(), Items);
-//	}
-//}
 
 void UInventoryComponent::AddItem(AActor* Item)
 {

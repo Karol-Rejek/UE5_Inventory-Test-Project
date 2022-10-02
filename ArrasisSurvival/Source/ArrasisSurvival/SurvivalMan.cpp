@@ -82,6 +82,17 @@ void ASurvivalMan::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAxis("Move Right / Left", this, &ASurvivalMan::MoveRight);
 }
 
+#pragma region ItemsFunctions
+void ASurvivalMan::AddInventoryItem(AActor* Item)
+{
+	if (HasAuthority())
+	{
+		InventoryComp->AddItem(Item);
+	}
+}
+
+#pragma endregion
+
 void ASurvivalMan::Interact()
 {
 	FVector Start = FollowCamera->GetComponentLocation();
@@ -119,11 +130,11 @@ void ASurvivalMan::ServerInteract_Implementation(FVector Start, FVector End)
 		if (IInteractableInterface* Interface = Cast<IInteractableInterface>(HitResult.GetActor()))
 		{
 			Interface->Interact(this);
-			//InventoryComp->AddItem(HitResult.GetActor());
 		}
 	}
 }
 
+#pragma region Movemont
 void ASurvivalMan::MoveForward(float Axis)
 {
 	if (!bDead)
@@ -199,6 +210,7 @@ void ASurvivalMan::AttemptJump()
 		PlayerStatComp->LowerStamina(10.0f);
 	}
 }
+#pragma endregion
 
 float ASurvivalMan::ReturnStats(int index)
 {

@@ -9,7 +9,6 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class UInventoryComponent;
-class AActor;
 #ifdef ARRASISSURVIVAL_SurvivalMan_generated_h
 #error "SurvivalMan.generated.h already included, missing '#pragma once' in SurvivalMan.h"
 #endif
@@ -33,10 +32,6 @@ class AActor;
 
 
 #define FID_ArrasisSurvival_Source_ArrasisSurvival_SurvivalMan_h_23_EVENT_PARMS \
-	struct SurvivalMan_eventAddItemToInventoryWidget_Parms \
-	{ \
-		AActor* Item; \
-	}; \
 	struct SurvivalMan_eventServerInteract_Parms \
 	{ \
 		FVector Start; \

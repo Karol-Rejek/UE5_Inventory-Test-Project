@@ -13,7 +13,6 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 	ARRASISSURVIVAL_API UClass* Z_Construct_UClass_ASurvivalMan();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	UPackage* Z_Construct_UPackage__Script_ArrasisSurvival();
-	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ARRASISSURVIVAL_API UClass* Z_Construct_UClass_UInventoryComponent_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
@@ -48,13 +47,6 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 		P_THIS->ServerInteract_Implementation(Z_Param_Start,Z_Param_End);
 		P_NATIVE_END;
 	}
-	static FName NAME_ASurvivalMan_AddItemToInventoryWidget = FName(TEXT("AddItemToInventoryWidget"));
-	void ASurvivalMan::AddItemToInventoryWidget(AActor* Item)
-	{
-		SurvivalMan_eventAddItemToInventoryWidget_Parms Parms;
-		Parms.Item=Item;
-		ProcessEvent(FindFunctionChecked(NAME_ASurvivalMan_AddItemToInventoryWidget),&Parms);
-	}
 	static FName NAME_ASurvivalMan_ServerInteract = FName(TEXT("ServerInteract"));
 	void ASurvivalMan::ServerInteract(FVector Start, FVector End)
 	{
@@ -72,34 +64,6 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 			{ "ServerInteract", &ASurvivalMan::execServerInteract },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
-	}
-	struct Z_Construct_UFunction_ASurvivalMan_AddItemToInventoryWidget_Statics
-	{
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_Item;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ASurvivalMan_AddItemToInventoryWidget_Statics::NewProp_Item = { "Item", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(SurvivalMan_eventAddItemToInventoryWidget_Parms, Item), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASurvivalMan_AddItemToInventoryWidget_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASurvivalMan_AddItemToInventoryWidget_Statics::NewProp_Item,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASurvivalMan_AddItemToInventoryWidget_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "SurvivalMan.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASurvivalMan_AddItemToInventoryWidget_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASurvivalMan, nullptr, "AddItemToInventoryWidget", nullptr, nullptr, sizeof(SurvivalMan_eventAddItemToInventoryWidget_Parms), Z_Construct_UFunction_ASurvivalMan_AddItemToInventoryWidget_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalMan_AddItemToInventoryWidget_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASurvivalMan_AddItemToInventoryWidget_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalMan_AddItemToInventoryWidget_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_ASurvivalMan_AddItemToInventoryWidget()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASurvivalMan_AddItemToInventoryWidget_Statics::FuncParams);
-		}
-		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ASurvivalMan_GetInventoryComp_Statics
 	{
@@ -237,7 +201,6 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_ArrasisSurvival,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ASurvivalMan_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ASurvivalMan_AddItemToInventoryWidget, "AddItemToInventoryWidget" }, // 2592308725
 		{ &Z_Construct_UFunction_ASurvivalMan_GetInventoryComp, "GetInventoryComp" }, // 3446484214
 		{ &Z_Construct_UFunction_ASurvivalMan_ReturnStats, "ReturnStats" }, // 2292696375
 		{ &Z_Construct_UFunction_ASurvivalMan_ServerInteract, "ServerInteract" }, // 2724358520
@@ -305,9 +268,9 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_SurvivalMan_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ASurvivalMan, ASurvivalMan::StaticClass, TEXT("ASurvivalMan"), &Z_Registration_Info_UClass_ASurvivalMan, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASurvivalMan), 3197789881U) },
+		{ Z_Construct_UClass_ASurvivalMan, ASurvivalMan::StaticClass, TEXT("ASurvivalMan"), &Z_Registration_Info_UClass_ASurvivalMan, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASurvivalMan), 2806966501U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_SurvivalMan_h_4101208248(TEXT("/Script/ArrasisSurvival"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_SurvivalMan_h_3318669657(TEXT("/Script/ArrasisSurvival"),
 		Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_SurvivalMan_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ArrasisSurvival_Source_ArrasisSurvival_SurvivalMan_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

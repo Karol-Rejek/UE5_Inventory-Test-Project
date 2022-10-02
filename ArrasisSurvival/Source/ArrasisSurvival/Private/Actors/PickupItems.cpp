@@ -8,6 +8,7 @@
 APickupItems::APickupItems()
 {
 	bReplicates = true;
+	SetReplicateMovement(true);
 	ObjectPickedUp = false;
 }
 
@@ -55,7 +56,7 @@ void APickupItems::Interact(ASurvivalMan* Character)
 	if (HasAuthority() && Character)
 	{
 		InInventory(true);
-		Character->AddItemToInventoryWidget(this);
+		Character->AddInventoryItem(this);
 	}
 }
 
@@ -66,6 +67,9 @@ void APickupItems::Use(ASurvivalMan* Character)
 
 void APickupItems::Drop()
 {
-	InInventory(false);
+	if (HasAuthority())
+	{
+		InInventory(false);
+	}
 }
 

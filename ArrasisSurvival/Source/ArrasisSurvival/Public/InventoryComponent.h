@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "ArrasisSurvival/SurvivalMan.h"
 #include "InventoryComponent.generated.h"
 
 
@@ -19,15 +20,11 @@ public:
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
-#pragma region ItemsFunctions
-
-
 
 	UPROPERTY(Replicated, BlueprintReadOnly, Category = "Inventory")
 		TArray<AActor*> Items;
 
-	/*UFUNCTION()
-		void OnRep_Items();*/
+	int32 InventoryCapacity;
 
 	UFUNCTION(Server, Reliable, WithValidation)
 		void Server_DropItem(class AActor* Item);
@@ -36,11 +33,11 @@ protected:
 
 	bool ChechIfClientHasItem(class AActor* Item);
 	bool RemoveItemFromInventory(class AActor* Item);
-#pragma endregion
-public:	
 
-	UFUNCTION(BlueprintCallable, Category = "ArrasisInventory|Inventory")
-		void AddItem(AActor* Item);
+public:	
+		
+
+	void AddItem(AActor* Item);
 		
 	UFUNCTION(BlueprintCallable, Category = "ArrasisInventory|Inventory")
 		void DropItem(AActor* Item);
@@ -50,4 +47,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "ArrasisInventory|Inventory")
 		int32 GetCurrentInventoryCount() { return Items.Num() - 1; }
+
+	UFUNCTION(BlueprintCallable, Category = "ArrasisInventory|Inventory")
+		int32 GetInventoryCapacity() { return InventoryCapacity - 1; }
 };
