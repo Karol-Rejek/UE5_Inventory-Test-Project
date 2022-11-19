@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival 5.1\\intermediate\\build\\win64\\unrealeditor\\inc\\arrasissurvival\\uht\\interactableinterface.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival 5.1\\intermediate\\build\\win64\\arrasissurvivaleditor\\development\\engine\\sharedpch.engine.shadowerrors.inclorderunreal5_0.h.pch",
+        "Includes": [
+            "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival 5.1\\intermediate\\build\\win64\\unrealeditor\\development\\arrasissurvival\\definitions.arrasissurvival.h",
+            "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival 5.1\\source\\arrasissurvival\\public\\interactableinterface.h",
+            "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival 5.1\\intermediate\\build\\win64\\unrealeditor\\inc\\arrasissurvival\\uht\\interactableinterface.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

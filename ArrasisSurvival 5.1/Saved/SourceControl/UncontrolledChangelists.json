@@ -1,0 +1,13 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset",
+				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/StarterContent/Architecture/Floor_400x400.uasset"
+			]
+		}
+	]
+}

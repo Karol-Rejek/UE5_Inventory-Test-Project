@@ -1,0 +1,21 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival 5.1\\source\\arrasissurvival\\survivalman_gamemode.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival 5.1\\intermediate\\build\\win64\\arrasissurvivaleditor\\development\\engine\\sharedpch.engine.shadowerrors.inclorderunreal5_0.h.pch",
+        "Includes": [
+            "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival 5.1\\intermediate\\build\\win64\\unrealeditor\\development\\arrasissurvival\\definitions.arrasissurvival.h",
+            "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival 5.1\\source\\arrasissurvival\\survivalman_gamemode.h",
+            "d:\\gry\\epicgames\\ue_5.1\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemode.h",
+            "d:\\gry\\epicgames\\ue_5.1\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "d:\\gry\\epicgames\\ue_5.1\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "d:\\gry\\epicgames\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
+            "d:\\gry\\epicgames\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
+            "d:\\gry\\epicgames\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemode.generated.h",
+            "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival 5.1\\intermediate\\build\\win64\\unrealeditor\\inc\\arrasissurvival\\uht\\survivalman_gamemode.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

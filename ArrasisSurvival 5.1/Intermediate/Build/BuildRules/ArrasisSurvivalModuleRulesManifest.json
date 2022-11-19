@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\GameByKR\\UE5_ArrasisSurvival\\UE5_ArrasisSurvival\\ArrasisSurvival 5.1\\Source\\ArrasisSurvival\\ArrasisSurvival.Build.cs",
+		"D:\\GameByKR\\UE5_ArrasisSurvival\\UE5_ArrasisSurvival\\ArrasisSurvival 5.1\\Source\\ArrasisSurvival.Target.cs",
+		"D:\\GameByKR\\UE5_ArrasisSurvival\\UE5_ArrasisSurvival\\ArrasisSurvival 5.1\\Source\\ArrasisSurvivalEditor.Target.cs"
+	],
+	"EngineVersion": "5.1.0"
+}
