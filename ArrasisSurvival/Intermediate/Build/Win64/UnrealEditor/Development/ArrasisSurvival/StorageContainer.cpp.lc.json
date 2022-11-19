@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival\\source\\arrasissurvival\\private\\storagecontainer.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival\\intermediate\\build\\win64\\arrasissurvivaleditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival\\intermediate\\build\\win64\\unrealeditor\\development\\arrasissurvival\\definitions.arrasissurvival.h",
+            "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival\\source\\arrasissurvival\\public\\storagecontainer.h",
+            "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival\\intermediate\\build\\win64\\unrealeditor\\inc\\arrasissurvival\\storagecontainer.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

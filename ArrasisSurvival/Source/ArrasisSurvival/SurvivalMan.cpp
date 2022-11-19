@@ -6,6 +6,7 @@
 #include "PlayerStatComponent.h"
 #include "Public/InventoryComponent.h"
 #include "Actors/Item.h"
+#include "Public/StorageContainer.h"
 
 #include "Components/SkeletalMeshComponent.h"
 #include "Components/StaticMeshComponent.h"
@@ -112,6 +113,10 @@ void ASurvivalMan::Interact(FVector Start, FVector End)
 		{
 			ServerInteract(Start, End);
 		}
+		else if (AStorageContainer* Container = Cast<AStorageContainer>(HitResult.GetActor()))
+		{
+			ServerInteract(Start, End);
+		}
 	}
 }
 
@@ -130,6 +135,18 @@ void ASurvivalMan::ServerInteract_Implementation(FVector Start, FVector End)
 		if (IInteractableInterface* Interface = Cast<IInteractableInterface>(HitResult.GetActor()))
 		{
 			Interface->Interact(this);
+		}
+		else if (AStorageContainer* Container = Cast<AStorageContainer>(HitResult.GetActor()))
+		{
+			if (UInventoryComponent* ContainerStorage = Container->GetInventoryComponent())
+			{
+				TArray<AActor*> ContainerItems = ContainerStorage->GetInventoryItems();
+				for (AActor* Pickup : ContainerItems)
+				{
+					UE_LOG(LogTemp, Warning, TEXT("Item: %s"), *Pickup->GetName());
+				}
+				UE_LOG(LogTemp, Warning, TEXT("End Of CONTAINER ITEMS"));
+			}
 		}
 	}
 }
@@ -194,7 +211,7 @@ void ASurvivalMan::HandleSprinting()
 {
 	if (bIsSprinting && this->GetVelocity().Size())
 	{
-		PlayerStatComp->LowerStamina(2.0f);
+		PlayerStatComp->LowerStamina(1.005f);
 		if (PlayerStatComp->GetStamina() <= 0.0f)
 		{
 			StopSprinting();

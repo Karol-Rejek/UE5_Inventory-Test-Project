@@ -29,7 +29,7 @@ void UPlayerStatComponent::BeginPlay()
 	if (GetOwnerRole() == ROLE_Authority)
 	{
 		GetWorld()->GetTimerManager().SetTimer(TimerHandle, this, &UPlayerStatComponent::HungerAndThirstHandle, 3.0f, true);
-		GetWorld()->GetTimerManager().SetTimer(StaminaHandle, this, &UPlayerStatComponent::RegenerateStamina, 1.0f, true);
+		GetWorld()->GetTimerManager().SetTimer(StaminaHandle, this, &UPlayerStatComponent::RegenerateStamina, 0.05f, true);
 	}
 }
 

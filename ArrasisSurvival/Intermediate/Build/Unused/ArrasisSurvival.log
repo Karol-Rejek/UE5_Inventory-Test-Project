@@ -3,16 +3,16 @@
   Using 'git status' to determine working set for adaptive non-unity build (D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival).
   Building ArrasisSurvivalEditor...
   Using Visual Studio 2022 14.33.31630 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  [Adaptive Build] Excluded from ArrasisSurvival unity file: InventoryComponent.cpp
+  [Adaptive Build] Excluded from ArrasisSurvival unity file: StorageContainer.cpp, PlayerStatComponent.cpp, SurvivalMan.cpp
   Determining max actions to execute in parallel (8 physical cores, 16 logical cores)
     Executing up to 8 processes, one per physical core
-    Requested 1,5 GB free memory per action, 7,96 GB available: limiting max parallel actions to 5
+    Requested 1,5 GB free memory per action, 7,8 GB available: limiting max parallel actions to 5
   Building 4 actions with 4 processes...
-  [1/4] Compile InventoryComponent.cpp
+  [1/4] Compile PlayerStatComponent.cpp
   [2/4] Link UnrealEditor-ArrasisSurvival.lib
      Trwa tworzenie biblioteki D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\UnrealEditor-ArrasisSurvival.lib i obiektu D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\UnrealEditor-ArrasisSurvival.exp
   [3/4] Link UnrealEditor-ArrasisSurvival.dll
      Trwa tworzenie biblioteki D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\UnrealEditor-ArrasisSurvival.suppressed.lib i obiektu D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\UnrealEditor-ArrasisSurvival.suppressed.exp
   [4/4] WriteMetadata ArrasisSurvivalEditor.target
-  Total time in Parallel executor: 17,71 seconds
-  Total execution time: 18,29 seconds
+  Total time in Parallel executor: 10,15 seconds
+  Total execution time: 10,77 seconds
