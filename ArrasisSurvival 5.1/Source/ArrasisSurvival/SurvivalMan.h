@@ -34,6 +34,9 @@ protected:
 
 	class UInventoryComponent* InventoryComp;
 
+	TSubclassOf<class UUserWidget> InventoryWidgetClass;
+	class UUserWidget* InventoryWidget;
+
 private:
 	void MoveForward(float Axis);
 	void MoveRight(float Axis);
@@ -43,6 +46,8 @@ private:
 	void HandleSprinting();
 	
 	void AttemptJump();
+
+	void OpenCloseInventory();
 
 protected:
 	void Interact();

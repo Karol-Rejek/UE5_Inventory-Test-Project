@@ -6,7 +6,11 @@
 			"description": "Default Uncontrolled Changelist",
 			"files": [
 				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset",
-				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/StarterContent/Architecture/Floor_400x400.uasset"
+				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/StarterContent/Architecture/Floor_400x400.uasset",
+				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/StarterContent/Audio/Collapse01.uasset",
+				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/Blueprint/Character_BP/BP_SurvivalMan.uasset",
+				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/StarterContent/Maps/Advanced_Lighting_BuiltData.uasset",
+				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/StarterContent/Materials/M_AssetPlatform.uasset"
 			]
 		}
 	]

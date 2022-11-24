@@ -13,6 +13,8 @@
 #include "GameFramework/Actor.h"
 #include "Kismet/GameplayStatics.h"
 #include "Net/UnrealNetwork.h"
+#include "UObject/ConstructorHelpers.h"
+#include "Blueprint/UserWidget.h"
 #include "TimerManager.h"
 
 // Sets default values
@@ -47,6 +49,13 @@ ASurvivalMan::ASurvivalMan()
 
 	PlayerStatComp = CreateDefaultSubobject<UPlayerStatComponent>("PlayerStatComponent");
 	InventoryComp = CreateDefaultSubobject<UInventoryComponent>("InventoryComponent");
+
+	static ConstructorHelpers::FClassFinder<UUserWidget> InventoryRef(TEXT("/Game/Widgets/character/InventoryWidgets/InventoryBase"));
+
+	if (InventoryRef.Class)
+	{
+		InventoryWidgetClass = InventoryRef.Class;
+	}
 }
 
 // Called when the game starts or when spawned
@@ -79,6 +88,8 @@ void ASurvivalMan::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &ASurvivalMan::Interact);
 
+	PlayerInputComponent->BindAction("Inventory", IE_Pressed, this, &ASurvivalMan::OpenCloseInventory);
+
 	PlayerInputComponent->BindAxis("Move Forward / Backward", this, &ASurvivalMan::MoveForward);
 	PlayerInputComponent->BindAxis("Move Right / Left", this, &ASurvivalMan::MoveRight);
 }
@@ -94,6 +105,7 @@ void ASurvivalMan::AddInventoryItem(AActor* Item)
 
 #pragma endregion
 
+#pragma region Interactions with objects
 void ASurvivalMan::Interact()
 {
 	FVector Start = FollowCamera->GetComponentLocation();
@@ -150,6 +162,7 @@ void ASurvivalMan::ServerInteract_Implementation(FVector Start, FVector End)
 		}
 	}
 }
+#pragma endregion
 
 #pragma region Movemont
 void ASurvivalMan::MoveForward(float Axis)
@@ -225,6 +238,34 @@ void ASurvivalMan::AttemptJump()
 	{
 		Jump();
 		PlayerStatComp->LowerStamina(10.0f);
+	}
+}
+#pragma endregion
+
+#pragma region Implementation to keys
+void ASurvivalMan::OpenCloseInventory()
+{
+	if (InventoryWidget && InventoryWidget->IsInViewport())
+	{
+		InventoryWidget->RemoveFromViewport();
+		if (APlayerController* PController = Cast<APlayerController>(GetController()))
+		{
+			PController->bShowMouseCursor = false;
+			PController->SetInputMode(FInputModeGameOnly());
+		}
+	}
+	else
+	{
+		InventoryWidget = CreateWidget<UUserWidget>(GetWorld(), InventoryWidgetClass);
+		if (InventoryWidget)
+		{
+			InventoryWidget->AddToViewport();
+			if (APlayerController* PController = Cast<APlayerController>(GetController()))
+			{
+				PController->bShowMouseCursor = true;
+				PController->SetInputMode(FInputModeGameAndUI());
+			}
+		}
 	}
 }
 #pragma endregion
