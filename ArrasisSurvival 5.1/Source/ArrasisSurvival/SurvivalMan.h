@@ -73,6 +73,7 @@ protected:
 
 public:
 	class UPlayerStatComponent* PlayerStatComp;
+	class ULineTrace* LineTraceComp;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

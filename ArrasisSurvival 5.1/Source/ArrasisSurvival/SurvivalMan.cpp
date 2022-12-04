@@ -5,6 +5,7 @@
 
 #include "PlayerStatComponent.h"
 #include "Public/InventoryComponent.h"
+#include "Public/LineTrace.h"
 #include "Actors/Item.h"
 #include "Public/StorageContainer.h"
 
@@ -48,6 +49,7 @@ ASurvivalMan::ASurvivalMan()
 	bIsSprinting = false;
 
 	PlayerStatComp = CreateDefaultSubobject<UPlayerStatComponent>("PlayerStatComponent");
+	LineTraceComp = CreateDefaultSubobject<ULineTrace>("LineTraceComponent");
 	InventoryComp = CreateDefaultSubobject<UInventoryComponent>("InventoryComponent");
 
 	static ConstructorHelpers::FClassFinder<UUserWidget> InventoryRef(TEXT("/Game/Widgets/character/InventoryWidgets/InventoryBase"));
@@ -115,17 +117,14 @@ void ASurvivalMan::Interact()
 
 void ASurvivalMan::Interact(FVector Start, FVector End)
 {
-
-	FHitResult HitResult;
-	FCollisionQueryParams Params;
-	Params.AddIgnoredActor(this);
-	if (GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECC_Visibility, Params))
+	FHitResult HitResult = LineTraceComp->LineTraceSingle(Start, End, true);
+	if (AActor* Actor = HitResult.GetActor())
 	{
-		if (IInteractableInterface* Interface = Cast<IInteractableInterface>(HitResult.GetActor()))
+		if (IInteractableInterface* Interface = Cast<IInteractableInterface>(Actor))
 		{
 			ServerInteract(Start, End);
 		}
-		else if (AStorageContainer* Container = Cast<AStorageContainer>(HitResult.GetActor()))
+		else if (AStorageContainer* Container = Cast<AStorageContainer>(Actor))
 		{
 			ServerInteract(Start, End);
 		}
@@ -139,16 +138,14 @@ bool ASurvivalMan::ServerInteract_Validate(FVector Start, FVector End)
 
 void ASurvivalMan::ServerInteract_Implementation(FVector Start, FVector End)
 {
-	FHitResult HitResult;
-	FCollisionQueryParams Params;
-	Params.AddIgnoredActor(this);
-	if (GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECC_Visibility, Params))
+	FHitResult HitResult = LineTraceComp->LineTraceSingle(Start, End, true);
+	if (AActor* Actor = HitResult.GetActor())
 	{
-		if (IInteractableInterface* Interface = Cast<IInteractableInterface>(HitResult.GetActor()))
+		if (IInteractableInterface* Interface = Cast<IInteractableInterface>(Actor))
 		{
 			Interface->Interact(this);
 		}
-		else if (AStorageContainer* Container = Cast<AStorageContainer>(HitResult.GetActor()))
+		else if (AStorageContainer* Container = Cast<AStorageContainer>(Actor))
 		{
 			if (UInventoryComponent* ContainerStorage = Container->GetInventoryComponent())
 			{
