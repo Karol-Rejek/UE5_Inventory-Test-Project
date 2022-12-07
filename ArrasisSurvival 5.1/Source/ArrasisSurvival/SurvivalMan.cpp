@@ -126,7 +126,13 @@ void ASurvivalMan::Interact(FVector Start, FVector End)
 		}
 		else if (AStorageContainer* Container = Cast<AStorageContainer>(Actor))
 		{
-			ServerInteract(Start, End);
+			//ServerInteract(Start, End);
+			OpenedContainer = Container;
+			OpenCloseInventory();
+		}
+		else
+		{
+			OpenedContainer = nullptr;
 		}
 	}
 }
@@ -144,18 +150,6 @@ void ASurvivalMan::ServerInteract_Implementation(FVector Start, FVector End)
 		if (IInteractableInterface* Interface = Cast<IInteractableInterface>(Actor))
 		{
 			Interface->Interact(this);
-		}
-		else if (AStorageContainer* Container = Cast<AStorageContainer>(Actor))
-		{
-			if (UInventoryComponent* ContainerStorage = Container->GetInventoryComponent())
-			{
-				TArray<AActor*> ContainerItems = ContainerStorage->GetInventoryItems();
-				for (AActor* Pickup : ContainerItems)
-				{
-					UE_LOG(LogTemp, Warning, TEXT("Item: %s"), *Pickup->GetName());
-				}
-				UE_LOG(LogTemp, Warning, TEXT("End Of CONTAINER ITEMS"));
-			}
 		}
 	}
 }
@@ -249,6 +243,7 @@ void ASurvivalMan::OpenCloseInventory()
 		{
 			PController->bShowMouseCursor = false;
 			PController->SetInputMode(FInputModeGameOnly());
+			OpenedContainer = nullptr;
 		}
 	}
 	else

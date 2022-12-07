@@ -11,6 +11,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AActor;
 class AItem;
+class AStorageContainer;
 #ifdef ARRASISSURVIVAL_InventoryComponent_generated_h
 #error "InventoryComponent.generated.h already included, missing '#pragma once' in InventoryComponent.h"
 #endif
@@ -18,6 +19,8 @@ class AItem;
 
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_InventoryComponent_h_14_SPARSE_DATA
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_InventoryComponent_h_14_RPC_WRAPPERS \
+	virtual bool Server_TransferItem_Validate(AStorageContainer* , AActor* ); \
+	virtual void Server_TransferItem_Implementation(AStorageContainer* Container, AActor* Item); \
 	virtual bool Server_UseItem_Validate(AItem* ); \
 	virtual void Server_UseItem_Implementation(AItem* Item); \
 	virtual bool Server_DropItem_Validate(AActor* ); \
@@ -28,6 +31,8 @@ class AItem;
 	DECLARE_FUNCTION(execGetInventoryItems); \
 	DECLARE_FUNCTION(execUseItem); \
 	DECLARE_FUNCTION(execDropItem); \
+	DECLARE_FUNCTION(execTransferItem); \
+	DECLARE_FUNCTION(execServer_TransferItem); \
 	DECLARE_FUNCTION(execServer_UseItem); \
 	DECLARE_FUNCTION(execServer_DropItem);
 
@@ -39,6 +44,8 @@ class AItem;
 	DECLARE_FUNCTION(execGetInventoryItems); \
 	DECLARE_FUNCTION(execUseItem); \
 	DECLARE_FUNCTION(execDropItem); \
+	DECLARE_FUNCTION(execTransferItem); \
+	DECLARE_FUNCTION(execServer_TransferItem); \
 	DECLARE_FUNCTION(execServer_UseItem); \
 	DECLARE_FUNCTION(execServer_DropItem);
 

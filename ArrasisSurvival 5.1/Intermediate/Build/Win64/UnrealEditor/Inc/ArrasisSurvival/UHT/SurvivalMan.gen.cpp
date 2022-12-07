@@ -10,6 +10,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 // Cross Module References
+	ARRASISSURVIVAL_API UClass* Z_Construct_UClass_AStorageContainer_NoRegister();
 	ARRASISSURVIVAL_API UClass* Z_Construct_UClass_ASurvivalMan();
 	ARRASISSURVIVAL_API UClass* Z_Construct_UClass_ASurvivalMan_NoRegister();
 	ARRASISSURVIVAL_API UClass* Z_Construct_UClass_UInventoryComponent_NoRegister();
@@ -19,6 +20,13 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_ArrasisSurvival();
 // End Cross Module References
+	DEFINE_FUNCTION(ASurvivalMan::execGetOpenedContainer)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(AStorageContainer**)Z_Param__Result=P_THIS->GetOpenedContainer();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ASurvivalMan::execGetInventoryComp)
 	{
 		P_FINISH;
@@ -66,6 +74,7 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 		UClass* Class = ASurvivalMan::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "GetInventoryComp", &ASurvivalMan::execGetInventoryComp },
+			{ "GetOpenedContainer", &ASurvivalMan::execGetOpenedContainer },
 			{ "ReturnStats", &ASurvivalMan::execReturnStats },
 			{ "ServerInteract", &ASurvivalMan::execServerInteract },
 		};
@@ -108,6 +117,38 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASurvivalMan_GetInventoryComp_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ASurvivalMan_GetOpenedContainer_Statics
+	{
+		struct SurvivalMan_eventGetOpenedContainer_Parms
+		{
+			AStorageContainer* ReturnValue;
+		};
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ASurvivalMan_GetOpenedContainer_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(SurvivalMan_eventGetOpenedContainer_Parms, ReturnValue), Z_Construct_UClass_AStorageContainer_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASurvivalMan_GetOpenedContainer_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASurvivalMan_GetOpenedContainer_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASurvivalMan_GetOpenedContainer_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "SurvivalMan.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASurvivalMan_GetOpenedContainer_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASurvivalMan, nullptr, "GetOpenedContainer", nullptr, nullptr, sizeof(Z_Construct_UFunction_ASurvivalMan_GetOpenedContainer_Statics::SurvivalMan_eventGetOpenedContainer_Parms), Z_Construct_UFunction_ASurvivalMan_GetOpenedContainer_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalMan_GetOpenedContainer_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASurvivalMan_GetOpenedContainer_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASurvivalMan_GetOpenedContainer_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASurvivalMan_GetOpenedContainer()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASurvivalMan_GetOpenedContainer_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -208,6 +249,7 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ASurvivalMan_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ASurvivalMan_GetInventoryComp, "GetInventoryComp" }, // 2433772243
+		{ &Z_Construct_UFunction_ASurvivalMan_GetOpenedContainer, "GetOpenedContainer" }, // 4034332182
 		{ &Z_Construct_UFunction_ASurvivalMan_ReturnStats, "ReturnStats" }, // 454184654
 		{ &Z_Construct_UFunction_ASurvivalMan_ServerInteract, "ServerInteract" }, // 3468696580
 	};
@@ -275,9 +317,9 @@ void EmptyLinkFunctionForGeneratedCodeSurvivalMan() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_SurvivalMan_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ASurvivalMan, ASurvivalMan::StaticClass, TEXT("ASurvivalMan"), &Z_Registration_Info_UClass_ASurvivalMan, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASurvivalMan), 3180455109U) },
+		{ Z_Construct_UClass_ASurvivalMan, ASurvivalMan::StaticClass, TEXT("ASurvivalMan"), &Z_Registration_Info_UClass_ASurvivalMan, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASurvivalMan), 1639465776U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_SurvivalMan_h_3537760146(TEXT("/Script/ArrasisSurvival"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_SurvivalMan_h_3810795759(TEXT("/Script/ArrasisSurvival"),
 		Z_CompiledInDeferFile_FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_SurvivalMan_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_SurvivalMan_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

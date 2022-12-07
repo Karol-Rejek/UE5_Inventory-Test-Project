@@ -24,7 +24,8 @@ protected:
 	UPROPERTY(Replicated, BlueprintReadOnly, Category = "Inventory")
 		TArray<AActor*> Items;
 
-	int32 InventoryCapacity;
+	UPROPERTY(EditAnywhere)
+		int32 InventoryCapacity;
 
 	UFUNCTION(Server, Reliable, WithValidation)
 		void Server_DropItem(class AActor* Item);
@@ -39,10 +40,18 @@ protected:
 	bool Server_UseItem_Validate(class AItem* Item);
 	void Server_UseItem_Implementation(class AItem* Item);
 
+	UFUNCTION(Server, Reliable, WithValidation)
+		void Server_TransferItem(class AStorageContainer* Container, class AActor* Item);
+	bool Server_TransferItem_Validate(class AStorageContainer* Container, class AActor* Item);
+	void Server_TransferItem_Implementation(class AStorageContainer* Container, class AActor* Item);
+
 public:	
 		
 
 	void AddItem(AActor* Item);
+
+	UFUNCTION(BlueprintCallable, Category = "ArrasisInventory|Inventory")
+		void TransferItem(class AStorageContainer* Container, class AActor* Item);
 		
 	UFUNCTION(BlueprintCallable, Category = "ArrasisInventory|Inventory")
 		void DropItem(AActor* Item);

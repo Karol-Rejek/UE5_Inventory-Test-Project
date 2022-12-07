@@ -2,23 +2,5 @@
   Log file: C:\Users\karol\AppData\Local\UnrealBuildTool\Log.txt
   Using 'git status' to determine working set for adaptive non-unity build (D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival).
   Waiting for 'git status' command to complete
-  Building ArrasisSurvivalEditor...
-  Using Visual Studio 2022 14.33.31631 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  [Upgrade]
-  [Upgrade] Using backward-compatible include order. The latest version of UE has changed the order of includes, which may require code changes. The current setting is:
-  [Upgrade]     IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_0
-  [Upgrade] Suppress this message by setting 'IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_1;' in ArrasisSurvivalEditor.Target.cs.
-  [Upgrade] Alternatively you can set this to 'EngineIncludeOrderVersion.Latest' to always use the latest include order. This will potentially cause compile errors when integrating new versions of the engine.
-  [Upgrade]
-  Determining max actions to execute in parallel (8 physical cores, 16 logical cores)
-    Executing up to 8 processes, one per physical core
-  Building 4 actions with 4 processes...
-  [1/4] Compile SurvivalMan.cpp
-D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival 5.1\Source\ArrasisSurvival\SurvivalMan.cpp(247): warning C4996: 'UUserWidget::RemoveFromViewport': RemoveFromViewport is deprecated. Use RemoveFromParent instead. Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
-  [2/4] Link UnrealEditor-ArrasisSurvival.lib
-     Trwa tworzenie biblioteki D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival 5.1\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\UnrealEditor-ArrasisSurvival.lib i obiektu D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival 5.1\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\UnrealEditor-ArrasisSurvival.exp
-  [3/4] Link UnrealEditor-ArrasisSurvival.dll
-     Trwa tworzenie biblioteki D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival 5.1\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\UnrealEditor-ArrasisSurvival.suppressed.lib i obiektu D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival 5.1\Intermediate\Build\Win64\UnrealEditor\Development\ArrasisSurvival\UnrealEditor-ArrasisSurvival.suppressed.exp
-  [4/4] WriteMetadata ArrasisSurvivalEditor.target
-  Total time in Parallel executor: 23.30 seconds
-  Total execution time: 26.25 seconds
+  Target is up to date
+  Total execution time: 2.87 seconds

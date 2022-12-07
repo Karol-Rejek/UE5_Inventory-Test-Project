@@ -15,15 +15,18 @@ public:
 	// Sets default values for this actor's properties
 	AStorageContainer();
 protected:
-	UPROPERTY(EditAnyWhere)
+	UPROPERTY(EditAnywhere)
 		class USkeletalMeshComponent* MashComp;
 
-	class UInventoryComponent* Inventory;
+	UPROPERTY(EditAnywhere)
+		class UInventoryComponent* Inventory;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
-	class UInventoryComponent* GetInventoryComponent() { return Inventory; }
+	UFUNCTION(BlueprintCallable)
+		class UInventoryComponent* GetInventoryComponent() { return Inventory; }
 
 };

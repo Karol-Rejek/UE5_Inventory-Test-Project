@@ -10,7 +10,15 @@
 				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/StarterContent/Audio/Collapse01.uasset",
 				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/Blueprint/Character_BP/BP_SurvivalMan.uasset",
 				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/StarterContent/Maps/Advanced_Lighting_BuiltData.uasset",
-				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/StarterContent/Materials/M_AssetPlatform.uasset"
+				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/StarterContent/Materials/M_AssetPlatform.uasset",
+				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/Widgets/character/InventoryWidgets/InventoryUI.uasset",
+				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/Widgets/character/InventoryWidgets/InventoryBase.uasset",
+				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/Widgets/character/InventoryWidgets/InventoryStorageUI.uasset",
+				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/StarterContent/Textures/T_Brick_Clay_Beveled_D.uasset",
+				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/Blueprint/InreractableObjects/BP_StorageContainer.uasset",
+				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/1/GJ/06ILJMQGEM8KSNJYT6CCNE.uasset",
+				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/StarterContent/Blueprints/Blueprint_CeilingLight.uasset",
+				"D:/GameByKR/UE5_ArrasisSurvival/UE5_ArrasisSurvival/ArrasisSurvival 5.1/Content/StarterContent/Particles/P_Ambient_Dust.uasset"
 			]
 		}
 	]

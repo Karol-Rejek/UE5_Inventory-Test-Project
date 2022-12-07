@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AStorageContainer;
 class UInventoryComponent;
 #ifdef ARRASISSURVIVAL_SurvivalMan_generated_h
 #error "SurvivalMan.generated.h already included, missing '#pragma once' in SurvivalMan.h"
@@ -20,6 +21,7 @@ class UInventoryComponent;
 	virtual bool ServerInteract_Validate(FVector , FVector ); \
 	virtual void ServerInteract_Implementation(FVector Start, FVector End); \
  \
+	DECLARE_FUNCTION(execGetOpenedContainer); \
 	DECLARE_FUNCTION(execGetInventoryComp); \
 	DECLARE_FUNCTION(execReturnStats); \
 	DECLARE_FUNCTION(execServerInteract);
@@ -27,6 +29,7 @@ class UInventoryComponent;
 
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_SurvivalMan_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGetOpenedContainer); \
 	DECLARE_FUNCTION(execGetInventoryComp); \
 	DECLARE_FUNCTION(execReturnStats); \
 	DECLARE_FUNCTION(execServerInteract);

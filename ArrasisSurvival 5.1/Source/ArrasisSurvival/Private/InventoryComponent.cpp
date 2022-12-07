@@ -4,6 +4,7 @@
 #include "InventoryComponent.h"
 #include "InteractableInterface.h"
 #include "Actors/Item.h"
+#include "StorageContainer.h"
 #include "Net/UnrealNetwork.h"
 
 // Sets default values for this component's properties
@@ -36,6 +37,31 @@ void UInventoryComponent::AddItem(AActor* Item)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Picked Up Item: %s"), *Item->GetName());
 			Items.Add(Item);
+		}
+	}
+}
+
+void UInventoryComponent::TransferItem(AStorageContainer* Container, AActor* Item)
+{
+	Server_TransferItem(Container, Item);
+}
+
+bool UInventoryComponent::Server_TransferItem_Validate(AStorageContainer* Container, AActor* Item)
+{
+	return ChechIfClientHasItem(Item);
+}
+
+void UInventoryComponent::Server_TransferItem_Implementation(AStorageContainer* Container, AActor* Item)
+{
+	if (GetOwnerRole() == ROLE_Authority)
+	{
+		if (Container)
+		{
+			if (UInventoryComponent* CInventory = Container->GetInventoryComponent())
+			{
+				CInventory->AddItem(Item);
+				RemoveItemFromInventory(Item);
+			}
 		}
 	}
 }

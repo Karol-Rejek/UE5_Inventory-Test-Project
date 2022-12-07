@@ -37,6 +37,8 @@ protected:
 	TSubclassOf<class UUserWidget> InventoryWidgetClass;
 	class UUserWidget* InventoryWidget;
 
+	class AStorageContainer* OpenedContainer;
+
 private:
 	void MoveForward(float Axis);
 	void MoveRight(float Axis);
@@ -70,6 +72,9 @@ protected:
 
 	UFUNCTION(BlueprintCallable)
 		class UInventoryComponent* GetInventoryComp() { return InventoryComp; }
+
+	UFUNCTION(BlueprintCallable)
+		class AStorageContainer* GetOpenedContainer() { return OpenedContainer; }
 
 public:
 	class UPlayerStatComponent* PlayerStatComp;
