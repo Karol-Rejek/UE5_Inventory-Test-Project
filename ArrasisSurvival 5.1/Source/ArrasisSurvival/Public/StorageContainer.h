@@ -16,10 +16,27 @@ public:
 	AStorageContainer();
 protected:
 	UPROPERTY(EditAnywhere)
-		class USkeletalMeshComponent* MashComp;
+		class USkeletalMeshComponent* MeshComp;
 
 	UPROPERTY(EditAnywhere)
 		class UInventoryComponent* Inventory;
+
+	UPROPERTY(EditAnywhere)
+		class UAnimationAsset* OpenAnimation;
+
+	UPROPERTY(EditAnywhere)
+		class UAnimationAsset* CloseAnimation;
+
+	UPROPERTY(ReplicatedUsing = OnRep_CheckIsOpened)
+		bool IsOpen;
+
+	UFUNCTION()
+		void OnRep_CheckIsOpened();
+
+	UFUNCTION(Server, Reliable, WithValidation)
+		void Server_OpenedChest(bool Opened);
+	bool Server_OpenedChest_Validate(bool Opened);
+	void Server_OpenedChest_Implementation(bool Opened);
 
 protected:
 	// Called when the game starts or when spawned
@@ -29,4 +46,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 		class UInventoryComponent* GetInventoryComponent() { return Inventory; }
 
+	void OpenedChest(bool Opened);
+	bool GetIsOpen() { return IsOpen; }
 };

@@ -67,6 +67,14 @@ void ASurvivalMan::BeginPlay()
 	
 }
 
+void ASurvivalMan::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	// REplicate to everyone
+	DOREPLIFETIME_CONDITION(ASurvivalMan, OpenedContainer, COND_OwnerOnly);
+}
+
 // Called every frame
 void ASurvivalMan::Tick(float DeltaTime)
 {
@@ -122,27 +130,23 @@ void ASurvivalMan::Interact(FVector Start, FVector End)
 	{
 		if (IInteractableInterface* Interface = Cast<IInteractableInterface>(Actor))
 		{
-			ServerInteract(Start, End);
+			Server_Interact(Start, End);
 		}
 		else if (AStorageContainer* Container = Cast<AStorageContainer>(Actor))
 		{
-			//ServerInteract(Start, End);
-			OpenedContainer = Container;
-			OpenCloseInventory();
-		}
-		else
-		{
-			OpenedContainer = nullptr;
+			Server_Interact(Start, End);
+			/*OpenedContainer = Container;
+			OpenCloseInventory();*/
 		}
 	}
 }
 
-bool ASurvivalMan::ServerInteract_Validate(FVector Start, FVector End)
+bool ASurvivalMan::Server_Interact_Validate(FVector Start, FVector End)
 {
 	return true;
 }
 
-void ASurvivalMan::ServerInteract_Implementation(FVector Start, FVector End)
+void ASurvivalMan::Server_Interact_Implementation(FVector Start, FVector End)
 {
 	FHitResult HitResult = LineTraceComp->LineTraceSingle(Start, End, true);
 	if (AActor* Actor = HitResult.GetActor())
@@ -150,6 +154,23 @@ void ASurvivalMan::ServerInteract_Implementation(FVector Start, FVector End)
 		if (IInteractableInterface* Interface = Cast<IInteractableInterface>(Actor))
 		{
 			Interface->Interact(this);
+		}
+		else if (AStorageContainer* Container = Cast<AStorageContainer>(Actor))
+		{
+			if (Container->GetIsOpen() && OpenedContainer == nullptr)
+				return;
+
+			bool OpenChest = false;
+			if (OpenedContainer)
+			{
+				OpenedContainer = nullptr;
+			}
+			else
+			{
+				OpenedContainer = Container;
+				OpenChest = true;
+			}
+			Container->OpenedChest(OpenChest);
 		}
 	}
 }
@@ -234,16 +255,20 @@ void ASurvivalMan::AttemptJump()
 #pragma endregion
 
 #pragma region Implementation to keys
-void ASurvivalMan::OpenCloseInventory()
+void ASurvivalMan::OnRep_OpenCloseContainer()
 {
 	if (InventoryWidget && InventoryWidget->IsInViewport())
+	{
+		InventoryWidget->RemoveFromViewport();
+	}
+
+	if (OpenedContainer == nullptr)
 	{
 		InventoryWidget->RemoveFromViewport();
 		if (APlayerController* PController = Cast<APlayerController>(GetController()))
 		{
 			PController->bShowMouseCursor = false;
 			PController->SetInputMode(FInputModeGameOnly());
-			OpenedContainer = nullptr;
 		}
 	}
 	else
@@ -259,6 +284,47 @@ void ASurvivalMan::OpenCloseInventory()
 			}
 		}
 	}
+	
+}
+
+void ASurvivalMan::OpenCloseInventory()
+{
+	if (InventoryWidget && InventoryWidget->IsInViewport())
+	{
+		InventoryWidget->RemoveFromViewport();
+		if (APlayerController* PController = Cast<APlayerController>(GetController()))
+		{
+			PController->bShowMouseCursor = false;
+			PController->SetInputMode(FInputModeGameOnly());
+		}
+
+		if (OpenedContainer)
+			Server_CloseInventory();
+	}
+	else
+	{
+		InventoryWidget = CreateWidget<UUserWidget>(GetWorld(), InventoryWidgetClass);
+		if (InventoryWidget)
+		{
+			InventoryWidget->AddToViewport();
+			if (APlayerController* PController = Cast<APlayerController>(GetController()))
+			{
+				PController->bShowMouseCursor = true;
+				PController->SetInputMode(FInputModeGameAndUI());
+			}
+		}
+	}
+}
+
+bool ASurvivalMan::Server_CloseInventory_Validate()
+{
+	return true;
+}
+void ASurvivalMan::Server_CloseInventory_Implementation()
+{
+	if (OpenedContainer)
+		OpenedContainer->OpenedChest(false);
+	OpenedContainer = nullptr;
 }
 #pragma endregion
 

@@ -17,23 +17,37 @@ class UInventoryComponent;
 
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_SPARSE_DATA
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_RPC_WRAPPERS \
+	virtual bool Server_OpenedChest_Validate(bool ); \
+	virtual void Server_OpenedChest_Implementation(bool Opened); \
  \
-	DECLARE_FUNCTION(execGetInventoryComponent);
+	DECLARE_FUNCTION(execGetInventoryComponent); \
+	DECLARE_FUNCTION(execServer_OpenedChest); \
+	DECLARE_FUNCTION(execOnRep_CheckIsOpened);
 
 
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execGetInventoryComponent);
+	DECLARE_FUNCTION(execGetInventoryComponent); \
+	DECLARE_FUNCTION(execServer_OpenedChest); \
+	DECLARE_FUNCTION(execOnRep_CheckIsOpened);
 
 
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_ACCESSORS
+#define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_CALLBACK_WRAPPERS
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAStorageContainer(); \
 	friend struct Z_Construct_UClass_AStorageContainer_Statics; \
 public: \
 	DECLARE_CLASS(AStorageContainer, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/ArrasisSurvival"), NO_API) \
-	DECLARE_SERIALIZER(AStorageContainer)
+	DECLARE_SERIALIZER(AStorageContainer) \
+	NO_API void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override; \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		IsOpen=NETFIELD_REP_START, \
+		NETFIELD_REP_END=IsOpen	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_INCLASS \
@@ -42,7 +56,14 @@ private: \
 	friend struct Z_Construct_UClass_AStorageContainer_Statics; \
 public: \
 	DECLARE_CLASS(AStorageContainer, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/ArrasisSurvival"), NO_API) \
-	DECLARE_SERIALIZER(AStorageContainer)
+	DECLARE_SERIALIZER(AStorageContainer) \
+	NO_API void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override; \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		IsOpen=NETFIELD_REP_START, \
+		NETFIELD_REP_END=IsOpen	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_STANDARD_CONSTRUCTORS \
@@ -78,6 +99,7 @@ public: \
 	FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_SPARSE_DATA \
 	FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_RPC_WRAPPERS \
 	FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_ACCESSORS \
+	FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_CALLBACK_WRAPPERS \
 	FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_INCLASS \
 	FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_STANDARD_CONSTRUCTORS \
 public: \
@@ -90,6 +112,7 @@ public: \
 	FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_SPARSE_DATA \
 	FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_ACCESSORS \
+	FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_CALLBACK_WRAPPERS \
 	FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_INCLASS_NO_PURE_DECLS \
 	FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_StorageContainer_h_12_ENHANCED_CONSTRUCTORS \
 private: \

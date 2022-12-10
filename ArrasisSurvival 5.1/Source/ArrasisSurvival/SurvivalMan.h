@@ -37,7 +37,8 @@ protected:
 	TSubclassOf<class UUserWidget> InventoryWidgetClass;
 	class UUserWidget* InventoryWidget;
 
-	class AStorageContainer* OpenedContainer;
+	UPROPERTY(ReplicatedUsing = OnRep_OpenCloseContainer)
+		class AStorageContainer* OpenedContainer;
 
 private:
 	void MoveForward(float Axis);
@@ -49,16 +50,24 @@ private:
 	
 	void AttemptJump();
 
+	UFUNCTION()
+		void OnRep_OpenCloseContainer();
+
 	void OpenCloseInventory();
 
 protected:
 	void Interact();
 	void Interact(FVector Start, FVector End);
+	
+	UFUNCTION(Server, Reliable, WithValidation)
+		void Server_Interact(FVector Start, FVector End);
+	bool Server_Interact_Validate(FVector Start, FVector End);
+	void Server_Interact_Implementation(FVector Start, FVector End);
 
 	UFUNCTION(Server, Reliable, WithValidation)
-		void ServerInteract(FVector Start, FVector End);
-	bool ServerInteract_Validate(FVector Start, FVector End);
-	void ServerInteract_Implementation(FVector Start, FVector End);
+		void Server_CloseInventory();
+	bool Server_CloseInventory_Validate();
+	void Server_CloseInventory_Implementation();
 
 	bool bDead;
 	bool bIsSprinting;
@@ -71,11 +80,11 @@ protected:
 	virtual void BeginPlay() override;
 
 	UFUNCTION(BlueprintCallable)
-		class UInventoryComponent* GetInventoryComp() { return InventoryComp; }
-
-	UFUNCTION(BlueprintCallable)
 		class AStorageContainer* GetOpenedContainer() { return OpenedContainer; }
 
+public:
+	UFUNCTION(BlueprintCallable)
+		class UInventoryComponent* GetInventoryComponent() { return InventoryComp; }
 public:
 	class UPlayerStatComponent* PlayerStatComp;
 	class ULineTrace* LineTraceComp;

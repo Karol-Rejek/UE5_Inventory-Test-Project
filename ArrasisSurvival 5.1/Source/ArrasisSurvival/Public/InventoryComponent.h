@@ -41,9 +41,9 @@ protected:
 	void Server_UseItem_Implementation(class AItem* Item);
 
 	UFUNCTION(Server, Reliable, WithValidation)
-		void Server_TransferItem(class AStorageContainer* Container, class AActor* Item);
-	bool Server_TransferItem_Validate(class AStorageContainer* Container, class AActor* Item);
-	void Server_TransferItem_Implementation(class AStorageContainer* Container, class AActor* Item);
+		void Server_TransferItem(class AActor* ToActor, class AActor* Item);
+	bool Server_TransferItem_Validate(class AActor* ToActor, class AActor* Item);
+	void Server_TransferItem_Implementation(class AActor* ToActor, class AActor* Item);
 
 public:	
 		
@@ -51,7 +51,7 @@ public:
 	void AddItem(AActor* Item);
 
 	UFUNCTION(BlueprintCallable, Category = "ArrasisInventory|Inventory")
-		void TransferItem(class AStorageContainer* Container, class AActor* Item);
+		void TransferItem(class AActor* ToActor, class AActor* Item);
 		
 	UFUNCTION(BlueprintCallable, Category = "ArrasisInventory|Inventory")
 		void DropItem(AActor* Item);

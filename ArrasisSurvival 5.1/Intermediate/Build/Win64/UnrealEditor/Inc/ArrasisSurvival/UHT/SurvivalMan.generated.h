@@ -18,21 +18,27 @@ class UInventoryComponent;
 
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_SurvivalMan_h_23_SPARSE_DATA
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_SurvivalMan_h_23_RPC_WRAPPERS \
-	virtual bool ServerInteract_Validate(FVector , FVector ); \
-	virtual void ServerInteract_Implementation(FVector Start, FVector End); \
+	virtual bool Server_CloseInventory_Validate(); \
+	virtual void Server_CloseInventory_Implementation(); \
+	virtual bool Server_Interact_Validate(FVector , FVector ); \
+	virtual void Server_Interact_Implementation(FVector Start, FVector End); \
  \
+	DECLARE_FUNCTION(execGetInventoryComponent); \
 	DECLARE_FUNCTION(execGetOpenedContainer); \
-	DECLARE_FUNCTION(execGetInventoryComp); \
 	DECLARE_FUNCTION(execReturnStats); \
-	DECLARE_FUNCTION(execServerInteract);
+	DECLARE_FUNCTION(execServer_CloseInventory); \
+	DECLARE_FUNCTION(execServer_Interact); \
+	DECLARE_FUNCTION(execOnRep_OpenCloseContainer);
 
 
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_SurvivalMan_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGetInventoryComponent); \
 	DECLARE_FUNCTION(execGetOpenedContainer); \
-	DECLARE_FUNCTION(execGetInventoryComp); \
 	DECLARE_FUNCTION(execReturnStats); \
-	DECLARE_FUNCTION(execServerInteract);
+	DECLARE_FUNCTION(execServer_CloseInventory); \
+	DECLARE_FUNCTION(execServer_Interact); \
+	DECLARE_FUNCTION(execOnRep_OpenCloseContainer);
 
 
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_SurvivalMan_h_23_ACCESSORS
@@ -43,7 +49,14 @@ private: \
 	friend struct Z_Construct_UClass_ASurvivalMan_Statics; \
 public: \
 	DECLARE_CLASS(ASurvivalMan, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/ArrasisSurvival"), NO_API) \
-	DECLARE_SERIALIZER(ASurvivalMan)
+	DECLARE_SERIALIZER(ASurvivalMan) \
+	NO_API void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override; \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		OpenedContainer=NETFIELD_REP_START, \
+		NETFIELD_REP_END=OpenedContainer	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_SurvivalMan_h_23_INCLASS \
@@ -52,7 +65,14 @@ private: \
 	friend struct Z_Construct_UClass_ASurvivalMan_Statics; \
 public: \
 	DECLARE_CLASS(ASurvivalMan, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/ArrasisSurvival"), NO_API) \
-	DECLARE_SERIALIZER(ASurvivalMan)
+	DECLARE_SERIALIZER(ASurvivalMan) \
+	NO_API void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override; \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		OpenedContainer=NETFIELD_REP_START, \
+		NETFIELD_REP_END=OpenedContainer	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_SurvivalMan_h_23_STANDARD_CONSTRUCTORS \

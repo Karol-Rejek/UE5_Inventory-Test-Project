@@ -41,26 +41,37 @@ void UInventoryComponent::AddItem(AActor* Item)
 	}
 }
 
-void UInventoryComponent::TransferItem(AStorageContainer* Container, AActor* Item)
+void UInventoryComponent::TransferItem(AActor* ToActor, AActor* Item)
 {
-	Server_TransferItem(Container, Item);
+	Server_TransferItem(ToActor, Item);
 }
 
-bool UInventoryComponent::Server_TransferItem_Validate(AStorageContainer* Container, AActor* Item)
+bool UInventoryComponent::Server_TransferItem_Validate(AActor* ToActor, AActor* Item)
 {
 	return ChechIfClientHasItem(Item);
 }
 
-void UInventoryComponent::Server_TransferItem_Implementation(AStorageContainer* Container, AActor* Item)
+void UInventoryComponent::Server_TransferItem_Implementation(AActor* ToActor, AActor* Item)
 {
 	if (GetOwnerRole() == ROLE_Authority)
 	{
-		if (Container)
+		if (ToActor)
 		{
-			if (UInventoryComponent* CInventory = Container->GetInventoryComponent())
+			if (AStorageContainer* Container = Cast<AStorageContainer>(ToActor))
 			{
-				CInventory->AddItem(Item);
-				RemoveItemFromInventory(Item);
+				if (UInventoryComponent* CInventory = Container->GetInventoryComponent())
+				{
+					CInventory->AddItem(Item);
+					RemoveItemFromInventory(Item);
+				}
+			}
+			else if (ASurvivalMan* Character = Cast<ASurvivalMan>(ToActor))
+			{
+				if (UInventoryComponent* CInventory = Character->GetInventoryComponent())
+				{
+					CInventory->AddItem(Item);
+					RemoveItemFromInventory(Item);
+				}
 			}
 		}
 	}

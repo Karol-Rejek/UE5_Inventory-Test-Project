@@ -198,7 +198,9 @@
             "d:\\gry\\epicgames\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\widgetanimation.generated.h",
             "d:\\gry\\epicgames\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\userwidget.generated.h",
             "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival 5.1\\intermediate\\build\\win64\\unrealeditor\\inc\\arrasissurvival\\uht\\survivalman.generated.h",
-            "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival 5.1\\intermediate\\build\\win64\\unrealeditor\\inc\\arrasissurvival\\uht\\inventorycomponent.generated.h"
+            "d:\\gamebykr\\ue5_arrasissurvival\\ue5_arrasissurvival\\arrasissurvival 5.1\\intermediate\\build\\win64\\unrealeditor\\inc\\arrasissurvival\\uht\\inventorycomponent.generated.h",
+            "d:\\gry\\epicgames\\ue_5.1\\engine\\source\\runtime\\engine\\public\\net\\unrealnetwork.h",
+            "d:\\gry\\epicgames\\ue_5.1\\engine\\source\\runtime\\net\\core\\public\\net\\core\\propertyconditions\\propertyconditions.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
