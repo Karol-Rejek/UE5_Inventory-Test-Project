@@ -23,8 +23,8 @@ class UInventoryComponent;
 	virtual bool Server_Interact_Validate(FVector , FVector ); \
 	virtual void Server_Interact_Implementation(FVector Start, FVector End); \
  \
-	DECLARE_FUNCTION(execGetInventoryComponent); \
 	DECLARE_FUNCTION(execGetOpenedContainer); \
+	DECLARE_FUNCTION(execGetInventoryComponent); \
 	DECLARE_FUNCTION(execReturnStats); \
 	DECLARE_FUNCTION(execServer_CloseInventory); \
 	DECLARE_FUNCTION(execServer_Interact); \
@@ -33,8 +33,8 @@ class UInventoryComponent;
 
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_SurvivalMan_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execGetInventoryComponent); \
 	DECLARE_FUNCTION(execGetOpenedContainer); \
+	DECLARE_FUNCTION(execGetInventoryComponent); \
 	DECLARE_FUNCTION(execReturnStats); \
 	DECLARE_FUNCTION(execServer_CloseInventory); \
 	DECLARE_FUNCTION(execServer_Interact); \

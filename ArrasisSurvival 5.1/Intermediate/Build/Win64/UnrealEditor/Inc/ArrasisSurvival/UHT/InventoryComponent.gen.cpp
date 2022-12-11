@@ -63,6 +63,19 @@ void EmptyLinkFunctionForGeneratedCodeInventoryComponent() {}
 		P_THIS->TransferItem(Z_Param_ToActor,Z_Param_Item);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UInventoryComponent::execServer_ReceiveItem)
+	{
+		P_GET_OBJECT(AItem,Z_Param_Item);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		if (!P_THIS->Server_ReceiveItem_Validate(Z_Param_Item))
+		{
+			RPC_ValidateFailed(TEXT("Server_ReceiveItem_Validate"));
+			return;
+		}
+		P_THIS->Server_ReceiveItem_Implementation(Z_Param_Item);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UInventoryComponent::execServer_TransferItem)
 	{
 		P_GET_OBJECT(AActor,Z_Param_ToActor);
@@ -107,6 +120,10 @@ void EmptyLinkFunctionForGeneratedCodeInventoryComponent() {}
 	{
 		AActor* Item;
 	};
+	struct InventoryComponent_eventServer_ReceiveItem_Parms
+	{
+		AItem* Item;
+	};
 	struct InventoryComponent_eventServer_TransferItem_Parms
 	{
 		AActor* ToActor;
@@ -122,6 +139,13 @@ void EmptyLinkFunctionForGeneratedCodeInventoryComponent() {}
 		InventoryComponent_eventServer_DropItem_Parms Parms;
 		Parms.Item=Item;
 		ProcessEvent(FindFunctionChecked(NAME_UInventoryComponent_Server_DropItem),&Parms);
+	}
+	static FName NAME_UInventoryComponent_Server_ReceiveItem = FName(TEXT("Server_ReceiveItem"));
+	void UInventoryComponent::Server_ReceiveItem(AItem* Item)
+	{
+		InventoryComponent_eventServer_ReceiveItem_Parms Parms;
+		Parms.Item=Item;
+		ProcessEvent(FindFunctionChecked(NAME_UInventoryComponent_Server_ReceiveItem),&Parms);
 	}
 	static FName NAME_UInventoryComponent_Server_TransferItem = FName(TEXT("Server_TransferItem"));
 	void UInventoryComponent::Server_TransferItem(AActor* ToActor, AActor* Item)
@@ -147,6 +171,7 @@ void EmptyLinkFunctionForGeneratedCodeInventoryComponent() {}
 			{ "GetInventoryCapacity", &UInventoryComponent::execGetInventoryCapacity },
 			{ "GetInventoryItems", &UInventoryComponent::execGetInventoryItems },
 			{ "Server_DropItem", &UInventoryComponent::execServer_DropItem },
+			{ "Server_ReceiveItem", &UInventoryComponent::execServer_ReceiveItem },
 			{ "Server_TransferItem", &UInventoryComponent::execServer_TransferItem },
 			{ "Server_UseItem", &UInventoryComponent::execServer_UseItem },
 			{ "TransferItem", &UInventoryComponent::execTransferItem },
@@ -317,6 +342,34 @@ void EmptyLinkFunctionForGeneratedCodeInventoryComponent() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UInventoryComponent_Server_ReceiveItem_Statics
+	{
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_Item;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UInventoryComponent_Server_ReceiveItem_Statics::NewProp_Item = { "Item", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, nullptr, nullptr, STRUCT_OFFSET(InventoryComponent_eventServer_ReceiveItem_Parms, Item), Z_Construct_UClass_AItem_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventoryComponent_Server_ReceiveItem_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_Server_ReceiveItem_Statics::NewProp_Item,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UInventoryComponent_Server_ReceiveItem_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/InventoryComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventoryComponent_Server_ReceiveItem_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventoryComponent, nullptr, "Server_ReceiveItem", nullptr, nullptr, sizeof(InventoryComponent_eventServer_ReceiveItem_Parms), Z_Construct_UFunction_UInventoryComponent_Server_ReceiveItem_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_Server_ReceiveItem_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x84280CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UInventoryComponent_Server_ReceiveItem_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_Server_ReceiveItem_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UInventoryComponent_Server_ReceiveItem()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInventoryComponent_Server_ReceiveItem_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UInventoryComponent_Server_TransferItem_Statics
 	{
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_ToActor;
@@ -481,6 +534,7 @@ void EmptyLinkFunctionForGeneratedCodeInventoryComponent() {}
 		{ &Z_Construct_UFunction_UInventoryComponent_GetInventoryCapacity, "GetInventoryCapacity" }, // 2589675673
 		{ &Z_Construct_UFunction_UInventoryComponent_GetInventoryItems, "GetInventoryItems" }, // 214293885
 		{ &Z_Construct_UFunction_UInventoryComponent_Server_DropItem, "Server_DropItem" }, // 1438872273
+		{ &Z_Construct_UFunction_UInventoryComponent_Server_ReceiveItem, "Server_ReceiveItem" }, // 3802058803
 		{ &Z_Construct_UFunction_UInventoryComponent_Server_TransferItem, "Server_TransferItem" }, // 1551621958
 		{ &Z_Construct_UFunction_UInventoryComponent_Server_UseItem, "Server_UseItem" }, // 2248440062
 		{ &Z_Construct_UFunction_UInventoryComponent_TransferItem, "TransferItem" }, // 173533083
@@ -561,9 +615,9 @@ void EmptyLinkFunctionForGeneratedCodeInventoryComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_InventoryComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UInventoryComponent, UInventoryComponent::StaticClass, TEXT("UInventoryComponent"), &Z_Registration_Info_UClass_UInventoryComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInventoryComponent), 1082978599U) },
+		{ Z_Construct_UClass_UInventoryComponent, UInventoryComponent::StaticClass, TEXT("UInventoryComponent"), &Z_Registration_Info_UClass_UInventoryComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInventoryComponent), 2733270021U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_InventoryComponent_h_2723010918(TEXT("/Script/ArrasisSurvival"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_InventoryComponent_h_2649279056(TEXT("/Script/ArrasisSurvival"),
 		Z_CompiledInDeferFile_FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_InventoryComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_InventoryComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

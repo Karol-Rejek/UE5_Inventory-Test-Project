@@ -77,6 +77,30 @@ void UInventoryComponent::Server_TransferItem_Implementation(AActor* ToActor, AA
 	}
 }
 
+bool UInventoryComponent::Server_ReceiveItem_Validate(AItem* Item)
+{
+	if (Item)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+void UInventoryComponent::Server_ReceiveItem_Implementation(AItem* Item)
+{
+	if (ASurvivalMan* Player = Cast<ASurvivalMan>(GetOwner()))
+	{
+		if (AStorageContainer* Container = Player->GetOpenedContainer())
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Transfering Item To Player"));
+			Container->GetInventoryComponent()->TransferItem(Player, Item);
+		}
+	}
+}
+
 bool UInventoryComponent::ChechIfClientHasItem(AActor* Item)
 {
 	for (AActor* Pickup : Items)

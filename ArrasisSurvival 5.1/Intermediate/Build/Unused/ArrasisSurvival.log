@@ -1,6 +1,5 @@
 ﻿  Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" ArrasisSurvivalEditor Win64 Development -Project="D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival\ArrasisSurvival 5.1\ArrasisSurvival.uproject" -WaitMutex -FromMsBuild
   Log file: C:\Users\karol\AppData\Local\UnrealBuildTool\Log.txt
   Using 'git status' to determine working set for adaptive non-unity build (D:\GameByKR\UE5_ArrasisSurvival\UE5_ArrasisSurvival).
-  Waiting for 'git status' command to complete
   Target is up to date
-  Total execution time: 3.19 seconds
+  Total execution time: 0.45 seconds

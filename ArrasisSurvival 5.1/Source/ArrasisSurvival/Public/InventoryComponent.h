@@ -45,6 +45,11 @@ protected:
 	bool Server_TransferItem_Validate(class AActor* ToActor, class AActor* Item);
 	void Server_TransferItem_Implementation(class AActor* ToActor, class AActor* Item);
 
+	UFUNCTION(BlueprintCallable, Server, Reliable, WithValidation)
+		void Server_ReceiveItem(class AItem* Item);
+	bool Server_ReceiveItem_Validate(class AItem* Item);
+	void Server_ReceiveItem_Implementation(class AItem* Item);
+
 public:	
 		
 

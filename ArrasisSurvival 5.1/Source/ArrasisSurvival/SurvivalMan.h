@@ -79,12 +79,12 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UFUNCTION(BlueprintCallable)
-		class AStorageContainer* GetOpenedContainer() { return OpenedContainer; }
-
 public:
 	UFUNCTION(BlueprintCallable)
 		class UInventoryComponent* GetInventoryComponent() { return InventoryComp; }
+
+	UFUNCTION(BlueprintCallable)
+		class AStorageContainer* GetOpenedContainer() { return OpenedContainer; }
 public:
 	class UPlayerStatComponent* PlayerStatComp;
 	class ULineTrace* LineTraceComp;

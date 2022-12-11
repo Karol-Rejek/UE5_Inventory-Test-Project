@@ -18,6 +18,8 @@ class AItem;
 
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_InventoryComponent_h_14_SPARSE_DATA
 #define FID_GameByKR_UE5_ArrasisSurvival_UE5_ArrasisSurvival_ArrasisSurvival_5_1_Source_ArrasisSurvival_Public_InventoryComponent_h_14_RPC_WRAPPERS \
+	virtual bool Server_ReceiveItem_Validate(AItem* ); \
+	virtual void Server_ReceiveItem_Implementation(AItem* Item); \
 	virtual bool Server_TransferItem_Validate(AActor* , AActor* ); \
 	virtual void Server_TransferItem_Implementation(AActor* ToActor, AActor* Item); \
 	virtual bool Server_UseItem_Validate(AItem* ); \
@@ -31,6 +33,7 @@ class AItem;
 	DECLARE_FUNCTION(execUseItem); \
 	DECLARE_FUNCTION(execDropItem); \
 	DECLARE_FUNCTION(execTransferItem); \
+	DECLARE_FUNCTION(execServer_ReceiveItem); \
 	DECLARE_FUNCTION(execServer_TransferItem); \
 	DECLARE_FUNCTION(execServer_UseItem); \
 	DECLARE_FUNCTION(execServer_DropItem);
@@ -44,6 +47,7 @@ class AItem;
 	DECLARE_FUNCTION(execUseItem); \
 	DECLARE_FUNCTION(execDropItem); \
 	DECLARE_FUNCTION(execTransferItem); \
+	DECLARE_FUNCTION(execServer_ReceiveItem); \
 	DECLARE_FUNCTION(execServer_TransferItem); \
 	DECLARE_FUNCTION(execServer_UseItem); \
 	DECLARE_FUNCTION(execServer_DropItem);
